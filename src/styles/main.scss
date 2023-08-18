@@ -1,9 +1,7 @@
 // 1. 這裡導入所有要預設變數覆蓋
 // --------------------------------
-$primary: #224040;
-$secondary: #952e1f;
-
-// $btn-border-radius:0;
+$primary: #152046;
+$secondary: #f4c445;
 
 // --------------------------------
 
@@ -27,7 +25,7 @@ ul {
     --primary_color_600: #1a5252;
     --primary_color_500: #62b6b6;
     --secondary_color: #952e1f;
-    --error_color: #ec391e;
+    --error_color: #C7000B;
     --background_color: #f2f2f2;
     --input_color: #fff6e7;
     --brown_color: #c1a688;
@@ -65,34 +63,6 @@ h5 {
 
 p {
     font-size: var(--text_size);
-}
-
-@mixin p_button {
-    font-size: var(--button_text);
-    border-radius: 20px;
-    width: 100px;
-    height: 40px;
-    background-color: var(--primary_color);
-    color: white;
-    text-align: center;
-    justify-content: center;
-    border: 0;
-}
-
-// 東方神秘力量
-@mixin eastern_mistery_force {
-    width: 90%;
-    height: 100%;
-    margin: 40px auto;
-    border-radius: 1.5rem;
-    backdrop-filter: blur(20px);
-}
-
-// card 專用背景
-@mixin card_background {
-    border-radius: 1rem;
-    backdrop-filter: blur(20px);
-    margin: auto;
 }
 
 //----------input&label-----------//
@@ -211,3 +181,129 @@ html {
 }
 
 // --------------------------------
+/* 共用CSS */
+body {
+    font-family: 'Rufina', serif;
+}
+.mb100 {
+    margin-bottom: 100px;
+}
+.mt100 {
+    margin-top: 100px;
+}
+.pb100 {
+    padding-bottom: 100px;
+}
+.beckertitlename {
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 700;
+    
+}
+.beckersubtitle {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.br {
+    border-bottom: #000000 solid 1px;
+}
+.fx {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+/* Banner */
+.banner {
+    width: 100%;
+    position: relative;
+}
+.banner img {
+    position: relative;
+    width: 100%;
+    object-fit: contain;   
+}
+.bannerblock {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-style: solid;
+    border-width: 0 0 700px 1200px;
+    border-color: transparent transparent #4d4d4d85 transparent;
+}
+.bannercircle {
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    border: #ffff solid 3px;
+    background-color: #ffffff77;
+} 
+.bannertext {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    font-family: 'Rufina', serif;
+    font-weight: 700;
+    font-size: 30pt;
+    text-align: right;
+    color: #ffff;
+}
+.aboutbannertext {
+    position: relative;
+    text-align: center;
+    font-family: 'Rufina', serif;
+    font-weight: 300;
+    font-size: 20pt;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.faqbannertext {
+    position: absolute;
+    font-family: 'Rufina', serif;
+    font-weight: 700;
+    font-size: 5rem;
+    left: 10%;
+    bottom: 5%;
+    color: #ffff;
+}
+.bannerttitle {
+    position: absolute;
+    font-family: 'Rufina', serif;
+    font-weight: 700;
+    font-size: 5rem;
+    left: 10%;
+    bottom: 5%;
+    color: #ffff;
+}
+.cpabannertext {
+    position: absolute;
+    font-family: 'Rufina', serif;
+    font-weight: 700;
+    color: #ffff;
+    font-size: 5rem;
+    top: 5%;
+    right: 5%;
+    line-height: 5rem;
+    text-align: right;
+}
+.cmabannertext {
+    position: absolute;
+    font-family: 'Rufina', serif;
+    font-weight: 700;
+    color: #2e2e2e;
+    font-size: 5rem;
+    top: 25%;
+    left: 5%;
+    text-align: left;
+}
+.lgtext {
+    font-size: 55pt;
+    line-height: 5rem;
+}
+.lxtext {
+    font-size: 70pt;
+}

@@ -1,0 +1,21 @@
+/* Nav bar */
+.logo {
+    width: 300px;
+    height: 100%;
+    padding-right: 50px;
+}
+.nav-link {
+    margin-right: 30px;
+}
+.navicon {
+    padding: 0.5rem;
+    color: #ffff;
+}
+.cwd {
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
