@@ -1,0 +1,374 @@
+/* CPA */
+.servicenavbar{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    top: -100px;
+    width: 100%;
+}
+
+.servicesq{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    background-color: var(--primary_color);
+    color: #ffff;
+    font-size: 5rem;
+    text-align: center;
+    justify-content: center;
+}
+
+/* cpaSubNav */
+.cpasubnav {
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-around;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    margin-bottom: 70px;
+    text-align: center;
+    align-items: center;
+}
+.cpasubnav a:hover {
+    text-decoration: none;
+    color: #cacaca;
+}
+.cpasubnav a:link {
+    text-decoration: none;
+    color: #ffffff;
+}
+.cpasubnav a:active {
+    text-decoration: none;
+    color: #6e6e6e;
+}
+.cpasubnav a:visited {
+    text-decoration: none;
+    color: #ffffff;
+}
+.whycpa {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.sixsq {
+    width: 300px;
+    height: 300px;
+    background-color: var(--primary_color);
+    color: #ffff;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.sixsq img {
+    width: 180px;
+    height: 180px;
+}
+
+/* USCPA 有助生涯&職涯規劃 */
+.cpaappliance img{
+    width: 250px;
+}
+
+/* 考試科目與題型配比 */
+.examtable {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.examsubjects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffff;
+}
+.examsubjects img {
+    width: 30%;
+}
+.subjectname{
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 4rem;
+}
+.fullname {
+    font-size: 1rem;
+    line-height: 1.4rem;
+    height: 2rem;
+}
+.chmean {
+    font-size: 1rem;
+    line-height: 1.4rem;
+    height: 4rem;
+    margin: 0 8%;
+}
+.examtime {
+    font-size: 1rem;
+    text-align: center;
+    line-height: 3rem;
+    height: 3rem;
+    width: 100%;
+}
+.qutype {
+    width: 100%;
+    line-height: 1.8rem;
+    height: 11rem;
+    font-size: 1rem;
+    padding: 1rem;
+}
+.qutype span {
+    display: block;
+    float: left;
+}
+.qutype ul {
+    padding: 0;
+}
+.qutype li {
+    list-style: none;
+    border-bottom: #ffffff4b 1px solid;
+    clear: both;
+}
+.qutype li .mma {
+    width: 80%;
+    padding-right: 5%;
+}
+.qutype li .mmt {
+    width: 15%;
+    text-align: right;
+    margin-right: 5%;
+}
+/* bgcolor */
+.fr {
+    background-color: #ffa544
+}
+.tfr {
+    background-color: #fe9627;
+}
+.mfr {
+    background-color: #fd8506;
+}
+.bc {
+    background-color: #ff8546;
+}
+.tbc {
+    background-color: #ff732b;
+}
+.mbc {
+    background-color: #ff6211;
+}
+.rg {
+    background-color: #a7d433;
+}
+.trg {
+    background-color: #8ec500;
+}
+.mrg {
+    background-color: #7fb000;
+}
+.au {
+    background-color: #02b4be;
+}
+.tau {
+    background-color: #0099a2;
+}
+.mau {
+    background-color: #01878f;
+}
+.wt {
+    background-color: #fff;
+}
+.gr {
+    background-color: #f7f7f7;
+}
+.tsti {
+    background-color: #333;
+    color: #fff;
+}
+/* 四科考試架構及考試注意事項 */
+.tmxl {
+    width: 80%;
+    border-right: 1px solid #fff;
+}
+.tms {
+    width: 15%;
+}
+.tml {
+    width: 45%;
+    text-align: left;
+    padding: 0 1em;
+}
+.tmm {
+    width: 20%;
+}
+.subjecttable ul li span{
+    float: left;
+    text-align: center;
+}
+.subjecttable ul li {
+    padding: 1.2em 0;
+    clear: both;
+    list-style-type: none;
+    overflow: hidden;
+}
+.subjecttable ul {
+    padding: 0;
+}
+/* 考試時間與成績保留原則 */
+.examtimeline ul {
+    padding: 0;
+}
+.base-timeline {
+    list-style-type: none;
+    position: relative;
+    display: block;
+    z-index: 2;
+    width: 50%; /* change or remove*/
+}
+
+.base-timeline::before {
+    content: '';
+    width: 100%;
+    border-top: 2px solid #2B418E;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+
+}
+
+.base-timeline__item {
+    position: relative;
+    display: inline-block;
+    width: calc(100% / 3 - -98px); /* change width */
+}
+
+.base-timeline__item::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #2B418E;
+    color: white;
+    font-weight: bold;
+    transition: all 0.6s ease-in-out;
+    box-sizing: border-box;
+}
+/* hover element */
+.base-timeline__item:hover::before {
+    background-color: var(--primary_color);
+    transform: scale(1.5);
+}
+
+.base-timeline__item--active::before {
+    background-color: var(--primary_color);
+    border: 2px solid;
+    border-color: rgba( 0, 0, 0, .3);
+}
+
+.base-timeline__item:last-child {
+    width: 0;
+}
+
+.base-timeline__summary-text {
+    position: absolute;
+    bottom: -4rem; 
+    left:9px;
+    white-space: nowrap;
+}
+.base-timeline__item--data::before {
+    content: attr(data-step);
+    width: 80px;
+    height: 80px;
+}
+/* step */
+.step {
+    align-items: center;
+}
+.stepcircle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    color: #ffff;
+    text-align: center;
+    font-weight: 700;
+    padding: 75px 0;
+    font-size: 1.2rem;
+}
+.tsbox {
+    background-color: #f7f7f7;
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 0;
+    text-align: center;
+}
+.tsti {
+    background-color: #333;
+    color: #fff;
+}
+.tsbox li {
+    padding: 1.2em 0;
+    clear: both;
+    list-style-type: none;
+    overflow: hidden;
+}
+.tsbox li span {
+    width: 20%;
+    display: block;
+    float: left;
+}
+/* 雙照計畫 */
+.douicon {
+    margin: auto;
+    justify-content: space-evenly;
+    margin-bottom: 100px;
+}
+.douicon img {
+    width: 200px;
+}
+.doupic {
+    width: 100%;
+    justify-content: space-evenly;
+}
+.doupic img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+/* 證照互認協議 */
+.protocol {
+width: 100%;
+text-align: center;
+
+}
+.protocol img {
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+.ctl {
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #333;
+}
+.ctbox {
+    text-align: center;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #333;
+    margin: 2em 0 0 0;
+    padding: 0.8em 0;
+}
+.ctbox img {
+    width: 80%;
+    clear: both;
+    margin: 0 auto;
+    display: block;
+}
+.ctbk {
+    width: 75%;
+    margin: 0 auto 3em auto;
+}

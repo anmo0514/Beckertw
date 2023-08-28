@@ -1,7 +1,7 @@
 // 1. 這裡導入所有要預設變數覆蓋
 // --------------------------------
 $primary: #152046;
-$secondary: #f4c445;
+// $secondary: #f4c445;
 
 // --------------------------------
 
@@ -20,7 +20,7 @@ ul {
 // --------------------------------
 :root {
     //各種顏色
-    --primary_color: #224040;
+    --primary_color: #152046;
     --primary_color_900: #0a1e22;
     --primary_color_600: #1a5252;
     --primary_color_500: #62b6b6;
@@ -306,4 +306,7 @@ body {
 }
 .lxtext {
     font-size: 70pt;
+}
+.bgb {
+    background-color: var(--primary_color);
 }

@@ -1,0 +1,187 @@
+/* USbecker */
+.beckerbanner {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+.beckerbannerblock {
+    background-color: var(--primary_color);
+    position: relative;
+}
+.beckerbannerblock img {
+    width: 50%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.beckertext {
+    position: relative;
+    text-align: center;
+    color: #ffff;
+    top: 35%;
+    font-size: 1rem;
+}
+.beckertext .beclertitle {
+    font-size: 2rem;
+}
+.beckertextarea1 {
+    text-align: center;
+    font-style: 1rem;
+    border-bottom: solid 1px #000000;
+}
+/* 認識becker */
+
+.advantage {
+    width: 100%;
+    border-bottom: #000000 solid 1px;
+}
+.adheaderpic {
+    margin: auto;
+    width: 250px;
+    height: 250px;
+}
+.adheaderpic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.adtitle {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: #000000 solid 1px;
+    width: 300px;
+    margin: auto;
+}
+.adp {
+    width: 300px;
+    margin: auto;
+    line-height: 2rem;
+}
+/* 培訓效益 */
+
+.iconarea {
+    border-bottom: #000000 solid 1px;
+}
+.iconue {
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #FFB342;
+}
+/* beckervideo */
+.beckervideo {
+    text-align: center;
+    border-bottom: #000000 solid 1px;
+}
+.midbanner {
+    width: 100%;
+    overflow: hidden;
+}
+/* feature */
+.feature {
+    border-bottom: #000000 solid 1px;
+}
+.featurep {
+    width: 80%;
+    margin: auto;
+}
+/* software */
+
+.software {
+    border-bottom: #000000 solid 1px;
+}
+.softwarepic {
+    text-align: center;
+}
+.softwarepic img{
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+}
+.softwaretitle {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-top: 1rem;
+}
+/* teacher */
+
+.teacherbanner {
+    text-align: center;
+}
+.teacherbanner img {
+    width: 800px;
+    text-align: center;
+}
+.teacherp {
+    text-align: center;
+    font-size: 1rem;
+    width: 800px;
+    margin: auto;
+    margin-top: 50px;
+}
+.teachers {
+    justify-content: space-around;
+}
+.teacher {
+    width: 400px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    background-color: #fcfcfc;
+}
+.teacherpic img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+}
+.teachername {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 700;
+    width: 300px;
+    margin: auto;
+}
+.teachersc {
+    font-size: 1rem;
+    text-align: center;
+}
+/* textbook */
+
+.beckertextbook img {
+    width: 500px;
+    border-radius: 50px;
+}
+
+.beckertextsubtitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.textbooktable{
+    border-radius: 20px;
+    border-collapse:collapse;
+    width: 1000px;
+    background-color: #555555;
+    margin: auto;
+}
+.textbooktabletitle {
+    font-size: 2rem;
+    color: #ffff;
+}
+.textbooktext {
+    font-size: 1rem;
+    color: #ffff;
+    background-color: #636363;
+    padding-left: 80px;
+}
+.textbooktable tr{
+    border-bottom: 1px solid #ffffff;
+    line-height: 50px;
+}

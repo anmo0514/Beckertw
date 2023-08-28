@@ -35,37 +35,8 @@ export default function Navbar() {
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="./becker">美國 Becker</NavLink>
                                 </li>
-                                <li className="nav-item dropdown">
-                                    <Link
-                                        className="nav-link dropdown-toggle"
-                                        id="navbarScrollingDropdown"
-                                        role="button"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                    >
-                                        服務項目
-                                    </Link>
-                                    <ul
-                                        className="dropdown-menu"
-                                        aria-labelledby="navbarScrollingDropdown"
-                                    >
-                                        <li>
-                                            <Link className="dropdown-item" to="/cpa">
-                                                CPA美國會計證照
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item" to="/cma">
-                                                CMA美國會計證照
-                                            </Link>
-                                        </li>
-                                        <li><hr className="dropdown-divider" /></li>
-                                        <li>
-                                            <Link className="dropdown-item" to="/chservice">
-                                                中文加值服務
-                                            </Link>
-                                        </li>
-                                    </ul>
+                                <li class="nav-item">
+                                    <NavLink className="nav-link" to="./cpa">服務項目</NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="#">成功案例</Link>

@@ -19,10 +19,10 @@ function App() {
           <Routes path="/">
             <Route index element={<Home/>}/>
             <Route path="about" element={<About/>}/>
-            {/* <Route path="becker" element={<Becker/>}/>
+            <Route path="becker" element={<Becker/>}/>
             <Route path="cpa" element={<Cpa/>}/>
             <Route path="cma" element={<Cma/>}/>
-            <Route path="share" element={<Share/>}/>
+            {/* <Route path="share" element={<Share/>}/>
             <Route path="faq" element={<Faq/>}/> */}
           </Routes>
         </Layout>
