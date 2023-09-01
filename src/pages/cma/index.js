@@ -7,7 +7,7 @@ function Cma() {
         <>
             {/* <!-- banner --> */}
             <div className="banner">
-                <img src="./image/CMA.jpg" alt=""/>
+                <img src="./cmaImg/CMA.jpg" alt=""/>
                 <div className="cmabannertext">
                     Direct Line<br/>
                     CMA <span className="fs-1">專業證照</span>
@@ -23,10 +23,11 @@ function Cma() {
             </div>
             {/* <!-- Service Nav--> */}
             <div className="servicenavbar">
-                <a href="./cpa.html" ><div className="servicesq">CPA</div></a>
-                <a href="./cma.html" ><div className="servicesq" >CMA</div></a>
-                <a href="./cpacc.html" style="text-decoration: none;"><div className="servicesq">CPA<div className="fs-3">學分班</div></div></a>
-                <a href="./cpapcs.html"><div className="servicesq">CPA<div className="fs-3">中文加值服務</div></div></a>
+                {/* style="background-color: #2B418E;" */}
+                <Link to="../cpa"><div className="servicesq">CPA</div></Link>
+                <Link to="../cma"><div className="servicesq">CMA</div></Link>
+                <Link to="../cpacc"><div className="servicesq">CPA<div className="fs-3">學分班</div></div></Link>
+                <Link to="../cpapcs"><div className="servicesq">CPA<div className="fs-3">中文加值服務</div></div></Link>
             </div>
             {/* <!-- CMAsubNav --> */}
             <div className="container-fluid bgb">
@@ -46,7 +47,7 @@ function Cma() {
                 <div className="beckertitlename mt100" id="why">What is U.S. CMA® </div>
                 <div className="fs-4 text-center fw-bolder mb100">美國註冊管理會計師專業證照</div>
                 <div className="text-center mb100">
-                    <img className="w-75" src="./image/cma_pic1.jpg"alt=""/>
+                    <img className="w-75" src="./cmaImg/cma_pic1.jpg" alt=""/>
                 </div>
                 <div className="fs-5 w-75 m-auto">
                     美國註冊管理會計師The U.S. CMA® (Certified Management Accountant) 國際證照（內含兩科考試），由美國管理會計師協會 (Institute of Management Accountants，簡稱 IMA) 設立與舉辦。<br/><br/>
@@ -58,7 +59,7 @@ function Cma() {
                 <div className="br mb100 mt100"></div>
                 <div className="fs-2 text-center fw-bolder mb100" id="about">About IMA® / IMA® 協會介紹</div>
                 <div className="text-center mb100">
-                    <img className="w-75" src="./image/cma_pic2.jpg"alt=""/>
+                    <img className="w-75" src="./cmaImg/cma_pic2.jpg"alt=""/>
                 </div>
                 <div className="fs-5 w-75 m-auto">
                     美國管理會計協會 (IMA®) 為管理會計領域最大之專業組織，1919年成立至今年已滿100年，已逾10萬會員遍及全球；於各大城市設有分會，活躍舉辦組織會員人脈拓展活動，在台灣亦設有台北分會 (IMA Taipei Chapter)。
@@ -70,7 +71,7 @@ function Cma() {
                 <div className="br mt100 mb100"></div>
                 <div className="fs-2 text-center fw-bolder mb100" id="exam">U.S. CMA Exam Structure / 美國註冊管理會計師考試介紹</div>
                 <div className="text-center mb100">
-                    <img className="w-75" src="./image/cma_pic3.jpeg"alt=""/>
+                    <img className="w-75" src="./cmaImg/cma_pic3.jpeg"alt=""/>
                 </div>
                 <div className="fs-4 fw-bold  w-75 mx-auto my-auto mb-4">
                     考試科目
@@ -111,7 +112,7 @@ function Cma() {
                 <div className="br mt100 mb100"></div>
                 <div className="fs-2 text-center fw-bolder mb100" id="sup">The Becker CMA Exam Review / Becker CMA 輔考教材</div>
                 <div className="text-center mb100">
-                    <img className="w-75" src="./image/cma_pic4.jpg" alt=""/>
+                    <img className="w-75" src="./cmaImg/cma_pic4.jpg" alt=""/>
                 </div>
                 <div className="fs-5 w-75 mx-auto my-auto">
                     Becker Professional Education身為國際專業執照輔考教材首選品牌，致力於研究與設計最適考生體驗、譽有高通過率、短通過時間之產品已逾六十年歷史。2021年起，Becker 與 IMA 攜手合作，推出最新Adapt2U科技人工智慧適性學習軟體，內含最新版本之考試題庫、教科書、模擬考題，搭配經驗豐富之美國專業菁英講師授課影片、以業界實務經驗帶入教學，優化考生使用體驗，提高投入時間效率。
@@ -126,7 +127,7 @@ function Cma() {
                 <div className="br mt100 mb100"></div>
                 <div className="fs-2 text-center fw-bolder mb100" id="cost">CMA 學員專屬考試費用減免</div>
                 <div className="text-center mb100">
-                    <img className="w-75" src="./image/cma_pic5.jpg" alt=""/>
+                    <img className="w-75" src="./cmaImg/cma_pic5.jpg" alt=""/>
                 </div>
                 <div className="fs-5 w-75 mx-auto my-auto">
                     Becker Taiwan (捷進顧問) 為 IMA® 在台唯一認證合作教材供應商 (Approved Review Course Provider, ARCP)，雙方簽署特約於2021至2023年提供 CMA 學員考試報名費之高額減免折扣。欲取得優惠折扣詳情，請至 Becker Taiwan 官方 LINE 帳號，傳訊息索取。
@@ -137,7 +138,8 @@ function Cma() {
                     <div className="col-6">
                         <div className="pdbox w-75">
                             <h5>Advantage自修方案</h5>
-                            <ul style="margin-bottom: 93px;">
+                            {/* style="margin-bottom: 93px;" */}
+                            <ul>
                                 <li>兩科線上學習軟體</li>
                                 <li>線上電子書</li>
                                 <li>500+ 張線上觀念閃字卡 (flashcards)</li>
@@ -162,20 +164,24 @@ function Cma() {
                                 <span>留學生</span><br/>
                             </div>
                             <div className="cash">46,000</div>
-                            <a href="https://forms.gle/giXyV9tj6gQFhpu68" target="_blank" className="bt_prd">»報名與購買</a>
+                            <Link to="https://forms.gle/giXyV9tj6gQFhpu68" target="_blank" className="bt_prd">»報名與購買</Link>
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="pdbox w-75">
                             <h5>菁英方案【2023年夏季班】</h5>
                             <ul>
-                                <li style="color:red;">Becker CMA Exam Review Part 1 &amp; Part 2 紙本教科書</li>
-                                <li style="color:red;">
+                                {/* style="color:red;" */}
+                                <li>Becker CMA Exam Review Part 1 &amp; Part 2 紙本教科書</li>
+                                {/* style="color:red;" */}
+                                <li>
                                     CMA 面授/雲端中文課程，共 60 小時中文專業師資教學
-                                    <ul style="margin: auto;">
-                                        <a href="https://beckertw.com/art/523">
-                                            <li style="text-decoration: underline;color:red;">2023年最新開課公告</li>
-                                        </a>
+                                    {/* style="margin: auto;" */}
+                                    <ul>
+                                        <Link to="https://beckertw.com/art/523">
+                                        {/* style="text-decoration: underline;color:red;" */}
+                                            <li>2023年最新開課公告</li>
+                                        </Link>
                                     </ul>
                                 </li>
                                 <li>兩科線上學習軟體</li>
@@ -202,17 +208,19 @@ function Cma() {
                                 <span>留學生、僅須重點中文課程者</span><br/>
                             </div>
                             <div className="cash">66,000</div>
-                            <a href="https://forms.gle/giXyV9tj6gQFhpu68" target="_blank" className="bt_prd">»報名與購買</a>
+                            <Link to="https://forms.gle/giXyV9tj6gQFhpu68" target="_blank" className="bt_prd">»報名與購買</Link>
                         </div>
                     </div>
                 </div>
                 <div className="br mt100 mb100"></div>
-                <h2 className="tit_ue mb100 mt100 text-center" style="background-image:none;font-weight:bold;">中文面授教學範圍</h2>
+                {/* style="background-image:none;font-weight:bold;" */}
+                <h2 className="tit_ue mb100 mt100 text-center">中文面授教學範圍</h2>
                 <div className="accordion mb100" id="accordionExample">
                     <div className="accordion-item">
                         <h2 className="accordion-header" id="headingOne">
                             <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <span style="font-weight:bold;">PART1</span>：Financial Planning, Performance, and Analysis<br />
+                            {/* style="font-weight:bold;" */}
+                                <span>PART1</span>：Financial Planning, Performance, and Analysis<br />
                             </button>
                         </h2>
                         <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -229,7 +237,8 @@ function Cma() {
                         <div className="accordion-item">
                         <h2 className="accordion-header" id="headingTwo">
                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <span style="font-weight:bold;">PART2</span>：Strategic Financial Management<br />
+                            {/* style="font-weight:bold;" */}
+                            <span>PART2</span>：Strategic Financial Management<br />
                             </button>
                         </h2>
                         <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -246,13 +255,15 @@ function Cma() {
                         <div className="accordion-item">
                         <h2 className="accordion-header" id="headingThree">
                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <span style="font-weight:bold;">Course Review</span><br />
+                            {/* style="font-weight:bold;" */}
+                            <span>Course Review</span><br />
                             </button>
                         </h2>
                         <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div className="accordion-body">
-                                <span style="font-weight:bold;">PART1</span>：Key points and analysis of CMA examination questions<br />
-                                <span style="font-weight:bold;">PART2</span>：Key points and analysis of CMA examination questions<br />
+                            {/* style="font-weight:bold;" */}
+                                <span>PART1</span>：Key points and analysis of CMA examination questions<br />
+                                <span>PART2</span>：Key points and analysis of CMA examination questions<br />
                             </div>
                         </div>
                     </div>
@@ -267,49 +278,24 @@ function Cma() {
                     <div className="tab-content" id="myTab1Content">
                         <div className="tab-pane fade show active" id="a" role="tabpanel" aria-labelledby="a-tab">
                             <div className="d-flex justify-content-around">
-                                <div className="card d" style="width: 18rem;">
-                                    <img src="./image/2.jpg" className="card-img-top" alt=""/>
+                            {/* style="width: 18rem;" */}
+                                <div className="card d">
+                                    <img src="./cmaImg/2.jpg" className="card-img-top" alt=""/>
                                     <div className="card-body">
                                         <h5 className="card-title">文/ 張同學</h5>
                                         <p className="card-text">申請關島 (Guam) CPA<br/>
                                             國立中興大學土木工程系畢業</p>
-                                        <a href="#" className="btn btn-primary">more</a>
+                                        <Link to="#" className="btn btn-primary">more</Link>
                                     </div>
                                 </div>
-                                <div className="card" style="width: 18rem;">
-                                    <img src="./image/2.jpg" className="card-img-top" alt=""/>
+                                {/* style="width: 18rem;" */}
+                                <div className="card">
+                                    <img src="./cmaImg/2.jpg" className="card-img-top" alt=""/>
                                     <div className="card-body">
                                         <h5 className="card-title">文/ 林同學</h5>
                                         <p className="card-text">申請關島 (Guam) CPA<br/>
                                         國立中興大學土木工程系畢業</p>
-                                        <a href="#" className="btn btn-primary">more</a>
-                                    </div>
-                                </div>
-                                <div className="card d" style="width: 18rem;">
-                                    <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                    <div className="card-body">
-                                        <h5 className="card-title">文/ 張同學</h5>
-                                        <p className="card-text">申請關島 (Guam) CPA<br/>
-                                            國立中興大學土木工程系畢業</p>
-                                        <a href="#" className="btn btn-primary">more</a>
-                                    </div>
-                                </div>
-                                <div className="card" style="width: 18rem;">
-                                    <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                    <div className="card-body">
-                                        <h5 className="card-title">文/ 林同學</h5>
-                                        <p className="card-text">申請關島 (Guam) CPA<br/>
-                                        國立中興大學土木工程系畢業</p>
-                                        <a href="#" className="btn btn-primary">more</a>
-                                    </div>
-                                </div>
-                                <div className="card" style="width: 18rem;">
-                                    <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                    <div className="card-body">
-                                        <h5 className="card-title">文/ 林同學</h5>
-                                        <p className="card-text">申請關島 (Guam) CPA<br/>
-                                        國立中興大學土木工程系畢業</p>
-                                        <a href="#" className="btn btn-primary">more</a>
+                                        <Link to="#" className="btn btn-primary">more</Link>
                                     </div>
                                 </div>
                             </div>

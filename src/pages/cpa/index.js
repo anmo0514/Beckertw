@@ -23,10 +23,10 @@ function Cpa() {
             {/* <!-- Service Nav--> */}
             <div className="servicenavbar">
                 {/* style="background-color: #2B418E;" */}
-                <NavLink to="./cpa.html"><div className="servicesq">CPA</div></NavLink>
-                <NavLink to="./cma.html"><div className="servicesq">CMA</div></NavLink>
-                <NavLink to="./cpacc.html"><div className="servicesq">CPA<div className="fs-3">學分班</div></div></NavLink>
-                <NavLink to="./cpapcs.html"><div className="servicesq">CPA<div className="fs-3">中文加值服務</div></div></NavLink>
+                <Link to="../cpa"><div className="servicesq">CPA</div></Link>
+                <Link to="../cma"><div className="servicesq">CMA</div></Link>
+                <Link to="../cpacc"><div className="servicesq">CPA<div className="fs-3">學分班</div></div></Link>
+                <Link to="../cpapcs"><div className="servicesq">CPA<div className="fs-3">中文加值服務</div></div></Link>
             </div>
             {/* <!-- CPAsubNav --> */}
             <div className="container-fluid bgb">
