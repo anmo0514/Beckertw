@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import "./styles/cma.scss";
 
 function Cma() {
@@ -26,7 +26,7 @@ function Cma() {
                 {/* style="background-color: #2B418E;" */}
                 <Link to="../cpa"><div className="servicesq">CPA</div></Link>
                 <Link to="../cma"><div className="servicesq">CMA</div></Link>
-                <Link to="../cpacc"><div className="servicesq">CPA<div className="fs-3">學分班</div></div></Link>
+                <Link to="../cpacc"><div className="servicesq">CPE</div></Link>
                 <Link to="../cpapcs"><div className="servicesq">CPA<div className="fs-3">中文加值服務</div></div></Link>
             </div>
             {/* <!-- CMAsubNav --> */}
@@ -54,7 +54,7 @@ function Cma() {
                     根據IMA 發佈之2021薪資調查報告書顯示，財務會計人員持有 U.S. CMA 者，其整體薪酬中位數比起non-CMA，增高了58%。
                 </div>
                 <div className="text-center mt100 mb100">
-                    <iframe width="600" height="350" src="https://www.youtube.com/embed/6hp8kc2rmnQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe width="600" height="350" src="ttps://youtu.be/OQLFiiXFXwc?si=SFex6U5lhBD5ztu9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <div className="br mb100 mt100"></div>
                 <div className="fs-2 text-center fw-bolder mb100" id="about">About IMA® / IMA® 協會介紹</div>
@@ -134,27 +134,28 @@ function Cma() {
                 </div>
                 <div className="br mt100 mb100"></div>
                 <div className="fs-2 text-center fw-bolder mb100" id="price">Prices / 方案價格</div>
-                <div className="d-flex">
+                <div className="row">
                     <div className="col-6">
-                        <div className="pdbox w-75">
+                        <div className="card pdbox w-75 h-100">
                             <h5>Advantage自修方案</h5>
-                            {/* style="margin-bottom: 93px;" */}
-                            <ul>
-                                <li>兩科線上學習軟體</li>
-                                <li>線上電子書</li>
-                                <li>500+ 張線上觀念閃字卡 (flashcards)</li>
-                                <li>3,000+ 單選練習題</li>
-                                <li>70 寫作問答練習題</li>
-                                <li>63+小時講師授課影片 </li>
-                                <li>依據 ICMA Learning Outcomes Statements，100% 配合考試異動固定更新教材內容</li>
-                                <li>Sana Labs研發之Adapt2U適性學習輔助科技</li>
-                                <li>介面與題型皆全擬真之模擬測驗</li>
-                                <li>個人適性出題模式</li>
-                                <li>大量刷題模式</li>
-                                <li>考程顧問諮詢輔導</li>
-                                <li>線上發問，外師迅速解題</li>
-                                <li>線上題型問答資料庫</li>
-                            </ul>
+                            <div className="card-body">
+                                <ul className="align-items-stretch">
+                                    <li>兩科線上學習軟體</li>
+                                    <li>線上電子書</li>
+                                    <li>500+ 張線上觀念閃字卡 (flashcards)</li>
+                                    <li>3,000+ 單選練習題</li>
+                                    <li>70 寫作問答練習題</li>
+                                    <li>63+小時講師授課影片 </li>
+                                    <li>依據 ICMA Learning Outcomes Statements，100% 配合考試異動固定更新教材內容</li>
+                                    <li>Sana Labs研發之Adapt2U適性學習輔助科技</li>
+                                    <li>介面與題型皆全擬真之模擬測驗</li>
+                                    <li>個人適性出題模式</li>
+                                    <li>大量刷題模式</li>
+                                    <li>考程顧問諮詢輔導</li>
+                                    <li>線上發問，外師迅速解題</li>
+                                    <li>線上題型問答資料庫</li>
+                                </ul>
+                            </div>
                             <div className="ugbk">
                                 <h6>使用效期</h6>
                                 <span>24個月</span>
@@ -164,41 +165,40 @@ function Cma() {
                                 <span>留學生</span><br/>
                             </div>
                             <div className="cash">46,000</div>
+                            
                             <Link to="https://forms.gle/giXyV9tj6gQFhpu68" target="_blank" className="bt_prd">»報名與購買</Link>
                         </div>
                     </div>
                     <div className="col-6">
-                        <div className="pdbox w-75">
+                        <div className="card pdbox w-75 h-100">
                             <h5>菁英方案【2023年夏季班】</h5>
-                            <ul>
-                                {/* style="color:red;" */}
-                                <li>Becker CMA Exam Review Part 1 &amp; Part 2 紙本教科書</li>
-                                {/* style="color:red;" */}
-                                <li>
-                                    CMA 面授/雲端中文課程，共 60 小時中文專業師資教學
-                                    {/* style="margin: auto;" */}
-                                    <ul>
-                                        <Link to="https://beckertw.com/art/523">
-                                        {/* style="text-decoration: underline;color:red;" */}
-                                            <li>2023年最新開課公告</li>
-                                        </Link>
-                                    </ul>
-                                </li>
-                                <li>兩科線上學習軟體</li>
-                                <li>線上電子書</li>
-                                <li>500+ 張線上觀念閃字卡 (flashcards)</li>
-                                <li>3,000+ 單選練習題</li>
-                                <li>70 寫作問答練習題</li>
-                                <li>63+小時講師授課影片 </li>
-                                <li>依據 ICMA Learning Outcomes Statements，100% 配合考試異動固定更新教材內容</li>
-                                <li>Sana Labs研發之Adapt2U適性學習輔助科技</li>
-                                <li>介面與題型皆全擬真之模擬測驗</li>
-                                <li>個人適性出題模式</li>
-                                <li>大量刷題模式</li>
-                                <li>考程顧問諮詢輔導</li>
-                                <li>線上發問，外師迅速解題</li>
-                                <li>線上題型問答資料庫</li>
-                            </ul>
+                            <div className="card-body">
+                                <ul>
+                                    <li className="text-danger">Becker CMA Exam Review Part 1 &amp; Part 2 紙本教科書</li>
+                                    <li className="text-danger">
+                                        CMA 面授/雲端中文課程，共 60 小時中文專業師資教學
+                                        <ul>
+                                            <NavLink className="text-decoration-none" to="https://beckertw.com/art/523">
+                                                <li className="text-danger">2023年最新開課公告</li>
+                                            </NavLink>
+                                        </ul>
+                                    </li>
+                                    <li>兩科線上學習軟體</li>
+                                    <li>線上電子書</li>
+                                    <li>500+ 張線上觀念閃字卡 (flashcards)</li>
+                                    <li>3,000+ 單選練習題</li>
+                                    <li>70 寫作問答練習題</li>
+                                    <li>63+小時講師授課影片 </li>
+                                    <li>依據 ICMA Learning Outcomes Statements，100% 配合考試異動固定更新教材內容</li>
+                                    <li>Sana Labs研發之Adapt2U適性學習輔助科技</li>
+                                    <li>介面與題型皆全擬真之模擬測驗</li>
+                                    <li>個人適性出題模式</li>
+                                    <li>大量刷題模式</li>
+                                    <li>考程顧問諮詢輔導</li>
+                                    <li>線上發問，外師迅速解題</li>
+                                    <li>線上題型問答資料庫</li>
+                                </ul>
+                            </div>
                             <div className="ugbk">
                                 <h6>使用效期</h6>
                                 <span>24個月</span>

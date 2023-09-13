@@ -25,7 +25,7 @@ function Cpa() {
                 {/* style="background-color: #2B418E;" */}
                 <Link to="../cpa"><div className="servicesq">CPA</div></Link>
                 <Link to="../cma"><div className="servicesq">CMA</div></Link>
-                <Link to="../cpacc"><div className="servicesq">CPA<div className="fs-3">學分班</div></div></Link>
+                <Link to="../cpacc"><div className="servicesq">CPE</div></Link>
                 <Link to="../cpapcs"><div className="servicesq">CPA<div className="fs-3">中文加值服務</div></div></Link>
             </div>
             {/* <!-- CPAsubNav --> */}
@@ -553,7 +553,7 @@ function Cpa() {
                         <div className="w-50 text-center m-auto">IQAB目前已經與以下專業機構建立了MRA</div>
                     </div>
                 </div>
-                <div className="container-fluid">
+                <div className="container-fluid mb100">
                     <div className="d-flex">
                         <div className="clearfix clear-columns"></div>
                         <div className="col-sm-3 ctbox ctl"><img src="./cpaImg/ic_ct01.png"alt=""/>澳洲特許會計師協會(ICAA)</div>
