@@ -8,6 +8,7 @@ import Becker from "./pages/becker";
 import Cpa from "./pages/cpa";
 import Cma from "./pages/cma";
 import Share from "./pages/share";
+import Video from "./pages/video";
 import Faq from "./pages/faq";
 
 
@@ -22,8 +23,9 @@ function App() {
             <Route path="becker" element={<Becker/>}/>
             <Route path="cpa" element={<Cpa/>}/>
             <Route path="cma" element={<Cma/>}/>
-            {/* <Route path="share" element={<Share/>}/>
-            <Route path="faq" element={<Faq/>}/> */}
+            <Route path="share" element={<Share/>}/>
+            <Route path="video" element={<Video/>}/>
+            <Route path="faq" element={<Faq/>}/>
           </Routes>
         </Layout>
       </BrowserRouter>

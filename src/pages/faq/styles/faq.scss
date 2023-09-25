@@ -1,0 +1,25 @@
+/* FAQ */
+.faq {
+    width: 100%;
+    display: flex;
+}
+.faqsubnav {
+    text-align: center;
+    font-size: 5rem;
+    color: #ffff;
+}
+.faqcpa {
+    background-color: #152046;
+    height: 50%;
+}
+.faqcma {
+    background-color: #2B418E;
+    height: 50%;
+}
+.question {
+    font-style: 2rem;
+    font-weight: 700;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+}

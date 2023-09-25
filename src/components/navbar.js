@@ -39,13 +39,13 @@ export default function Navbar() {
                                     <NavLink className="nav-link" to="./cpa">服務項目</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="#">成功案例</Link>
+                                    <Link className="nav-link" to="./share">成功案例</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="#">影音專區</Link>
+                                    <Link className="nav-link" to="./video">影音專區</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="#">FAQ</Link>
+                                    <Link className="nav-link" to="./faq">FAQ</Link>
                                 </li>
                                 <li className="nav-item navicon">
                                     <i className="fa-solid fa-user"></i>

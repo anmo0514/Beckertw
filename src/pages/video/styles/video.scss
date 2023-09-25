@@ -1,0 +1,40 @@
+/* Video */
+.videocate {
+    display: flex;
+    font-size: 3rem;
+    color: #ffff;
+}
+.cpacate {
+    background-color: #152046;
+}
+.cmacate {
+    background-color: #2B418E;
+}
+.cateitem {
+    color: #242424;
+    font-size: 1rem;
+    list-style-type:none;
+}
+.cateitem li{
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.cateitem ul {
+    padding-left: 0;
+    margin: auto;
+}
+.videotitle {
+    font-size: 2rem;
+    color: #000000;
+    font-weight: 700;
+}
+.videotext {
+    font-size: 1.5rem;
+    color: #000000;
+}
+.speacher {
+    font-size: 1rem;
+    color: #000000;
+}
