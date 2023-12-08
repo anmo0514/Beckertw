@@ -28,7 +28,7 @@ export default function Navbar() {
                                 // style="--bs-scroll-height: 500px"
                             >
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" aria-current="page" to="/about"
+                                    <NavLink className="nav-link" aria-current="page" to="./about/origin"
                                         >關於捷進
                                     </NavLink>
                                 </li>
@@ -36,7 +36,10 @@ export default function Navbar() {
                                     <NavLink className="nav-link" to="./becker">美國 Becker</NavLink>
                                 </li>
                                 <li class="nav-item">
-                                    <NavLink className="nav-link" to="./cpa">服務項目</NavLink>
+                                    <NavLink className="nav-link" to="./cpa">國際證照考試</NavLink>
+                                </li>
+                                <li class="nav-item">
+                                    <NavLink className="nav-link" to="./service">服務項目</NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="./share">成功案例</Link>
@@ -47,15 +50,21 @@ export default function Navbar() {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="./faq">FAQ</Link>
                                 </li>
-                                <li className="nav-item navicon">
-                                    <i className="fa-solid fa-user"></i>
-                                </li>
-                                <li className="nav-item navicon">
-                                    <i className="fa-solid fa-comment"></i>
-                                </li>
-                                <li className="nav-item navicon">
-                                    <i className="fa-solid fa-headphones"></i>
-                                </li>
+                                <Link to="/member">
+                                    <li className="nav-item navicon">
+                                        <i className="fa-solid fa-user"></i>
+                                    </li>
+                                </Link>
+                                <Link to="/consult">
+                                    <li className="nav-item navicon">
+                                            <i className="fa-solid fa-comment"></i>
+                                    </li>
+                                </Link>
+                                <Link to="/audition">
+                                    <li className="nav-item navicon">
+                                            <i className="fa-solid fa-headphones"></i>
+                                    </li>
+                                </Link>
                             </ul>
                         </div>
                     </div>

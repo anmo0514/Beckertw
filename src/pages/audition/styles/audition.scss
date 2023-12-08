@@ -1,0 +1,18 @@
+.auditionbar{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    top: 0px;
+    width: 100%;
+}
+
+.auditionsq{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    color: #ffff;
+    font-size: 5rem;
+    text-align: center;
+    justify-content: center;
+}

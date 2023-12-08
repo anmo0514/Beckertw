@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import "./styles/becker.scss";
+import { motion } from "framer-motion"
 
 function Becker() {
     return (
@@ -15,9 +16,17 @@ function Becker() {
                         專業 x 領先 x 權威<br />
                     </div>
                 </div>
-                <div className="col-9">
-                    <img src="./beckerImg/usbecker.jpg" alt=""/>
-                </div>
+                <motion.div
+                        initial={{ opacity: 0, x:100 }}
+                        whileInView={{ opacity: 1, x:0 }}
+                        transition={{
+                        delay: 0.4,
+                        default: { ease: "linear" },
+                    }}>
+                    <div className="col-9">
+                        <img src="./beckerImg/usbecker.jpg" alt=""/>
+                    </div>
+                </motion.div>
             </div>
             {/* <!-- subnav --> */}
             <div className="container">
@@ -181,7 +190,15 @@ function Becker() {
             <div className="container">
                 <div className="row">
                     <div className="softwarepic col-6 mb100">
-                        <img src="./beckerImg/future_1.jpg" alt=""/>
+                        <motion.div
+                            initial={{ opacity: 0, x:-100 }}
+                            whileInView={{ opacity: 1, x:0 }}
+                            transition={{
+                            delay: 0.4,
+                            default: { ease: "linear" },
+                        }}>
+                            <img src="./beckerImg/future_1.jpg" alt=""/>
+                        </motion.div>
                     </div>
                     <div className="col-6">
                         <div className="softwaretitle mb-4">軟體功能</div>
@@ -198,7 +215,15 @@ function Becker() {
                 </div>
                 <div className="software row mb100">
                     <div className="softwarepic col-6 mb100">
-                        <img src="./beckerImg/future_2.jpeg" alt=""/>
+                        <motion.div
+                            initial={{ opacity: 0, x:-100 }}
+                            whileInView={{ opacity: 1, x:0 }}
+                            transition={{
+                            delay: 0.4,
+                            default: { ease: "linear" },
+                        }}>
+                            <img src="./beckerImg/future_2.jpeg" alt=""/>
+                        </motion.div>
                     </div>
                     <div className="col-6">
                         <div className="softwaretitle mb-4">軟體內建</div>
@@ -313,7 +338,15 @@ function Becker() {
                 <div className="row mb-5">
                     <div className="col-6">
                         <div className="beckertextbook">
-                            <img src="./beckerImg/becker_textbook.jpeg" alt=""/>
+                            <motion.div
+                                initial={{ opacity: 0, x:-100 }}
+                                whileInView={{ opacity: 1, x:0 }}
+                                transition={{
+                                delay: 0.4,
+                                default: { ease: "linear" },
+                            }}>
+                                <img src="./beckerImg/becker_textbook.jpeg" alt=""/>
+                            </motion.div>
                         </div>
                     </div>
                     <div className="col-6">

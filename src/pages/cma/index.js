@@ -1,13 +1,23 @@
 import { useState, useEffect } from "react";
 import {Link, NavLink} from "react-router-dom";
 import "./styles/cma.scss";
+import { motion } from "framer-motion";
+import Accordion from 'react-bootstrap/Accordion';
 
 function Cma() {
     return (
         <>
             {/* <!-- banner --> */}
             <div className="banner">
-                <img src="./cmaImg/CMA.jpg" alt=""/>
+                <motion.div
+                                initial={{ opacity: 0, x:-100 }}
+                                whileInView={{ opacity: 1, x:0 }}
+                                transition={{
+                                delay: 0.4,
+                                default: { ease: "linear" },
+                            }}>
+                    <img src="./cmaImg/CMA.jpg" alt=""/>
+                </motion.div>
                 <div className="cmabannertext">
                     Direct Line<br/>
                     CMA <span className="fs-1">專業證照</span>
@@ -46,21 +56,37 @@ function Cma() {
             <div className="container">
                 <div className="beckertitlename mt100" id="why">What is U.S. CMA® </div>
                 <div className="fs-4 text-center fw-bolder mb100">美國註冊管理會計師專業證照</div>
-                <div className="text-center mb100">
-                    <img className="w-75" src="./cmaImg/cma_pic1.jpg" alt=""/>
-                </div>
+                <motion.div
+                                initial={{ opacity: 0, x:-100 }}
+                                whileInView={{ opacity: 1, x:0 }}
+                                transition={{
+                                delay: 0.4,
+                                default: { ease: "linear" },
+                            }}>
+                    <div className="text-center mb100">
+                        <img className="w-75" src="./cmaImg/cma_pic1.jpg" alt=""/>
+                    </div>
+                </motion.div>
                 <div className="fs-5 w-75 m-auto">
                     美國註冊管理會計師The U.S. CMA® (Certified Management Accountant) 國際證照（內含兩科考試），由美國管理會計師協會 (Institute of Management Accountants，簡稱 IMA) 設立與舉辦。<br/><br/>
                     根據IMA 發佈之2021薪資調查報告書顯示，財務會計人員持有 U.S. CMA 者，其整體薪酬中位數比起non-CMA，增高了58%。
                 </div>
-                <div className="text-center mt100 mb100">
-                    <iframe width="600" height="350" src="ttps://youtu.be/OQLFiiXFXwc?si=SFex6U5lhBD5ztu9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
+                {/* <div className="text-center mt100 mb100">
+                    <iframe width="600" height="350" src="https://www.youtube.com/watch?v=OQLFiiXFXwc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div> */}
                 <div className="br mb100 mt100"></div>
                 <div className="fs-2 text-center fw-bolder mb100" id="about">About IMA® / IMA® 協會介紹</div>
-                <div className="text-center mb100">
-                    <img className="w-75" src="./cmaImg/cma_pic2.jpg"alt=""/>
-                </div>
+                <motion.div
+                                initial={{ opacity: 0, x:-100 }}
+                                whileInView={{ opacity: 1, x:0 }}
+                                transition={{
+                                delay: 0.4,
+                                default: { ease: "linear" },
+                            }}>
+                    <div className="text-center mb100">
+                        <img className="w-75" src="./cmaImg/cma_pic2.jpg"alt=""/>
+                    </div>
+                </motion.div>
                 <div className="fs-5 w-75 m-auto">
                     美國管理會計協會 (IMA®) 為管理會計領域最大之專業組織，1919年成立至今年已滿100年，已逾10萬會員遍及全球；於各大城市設有分會，活躍舉辦組織會員人脈拓展活動，在台灣亦設有台北分會 (IMA Taipei Chapter)。
                     <br/><br/>
@@ -70,9 +96,17 @@ function Cma() {
                 </div>
                 <div className="br mt100 mb100"></div>
                 <div className="fs-2 text-center fw-bolder mb100" id="exam">U.S. CMA Exam Structure / 美國註冊管理會計師考試介紹</div>
-                <div className="text-center mb100">
-                    <img className="w-75" src="./cmaImg/cma_pic3.jpeg"alt=""/>
-                </div>
+                <motion.div
+                                initial={{ opacity: 0, x:-100 }}
+                                whileInView={{ opacity: 1, x:0 }}
+                                transition={{
+                                delay: 0.4,
+                                default: { ease: "linear" },
+                            }}>
+                    <div className="text-center mb100">
+                        <img className="w-75" src="./cmaImg/cma_pic3.jpeg"alt=""/>
+                    </div>
+                </motion.div>
                 <div className="fs-4 fw-bold  w-75 mx-auto my-auto mb-4">
                     考試科目
                 </div>
@@ -111,9 +145,17 @@ function Cma() {
                 </div>
                 <div className="br mt100 mb100"></div>
                 <div className="fs-2 text-center fw-bolder mb100" id="sup">The Becker CMA Exam Review / Becker CMA 輔考教材</div>
-                <div className="text-center mb100">
-                    <img className="w-75" src="./cmaImg/cma_pic4.jpg" alt=""/>
-                </div>
+                <motion.div
+                                initial={{ opacity: 0, x:-100 }}
+                                whileInView={{ opacity: 1, x:0 }}
+                                transition={{
+                                delay: 0.4,
+                                default: { ease: "linear" },
+                            }}>
+                    <div className="text-center mb100">
+                        <img className="w-75" src="./cmaImg/cma_pic4.jpg" alt=""/>
+                    </div>
+                </motion.div>
                 <div className="fs-5 w-75 mx-auto my-auto">
                     Becker Professional Education身為國際專業執照輔考教材首選品牌，致力於研究與設計最適考生體驗、譽有高通過率、短通過時間之產品已逾六十年歷史。2021年起，Becker 與 IMA 攜手合作，推出最新Adapt2U科技人工智慧適性學習軟體，內含最新版本之考試題庫、教科書、模擬考題，搭配經驗豐富之美國專業菁英講師授課影片、以業界實務經驗帶入教學，優化考生使用體驗，提高投入時間效率。
                 </div>
@@ -126,9 +168,17 @@ function Cma() {
                 </div>
                 <div className="br mt100 mb100"></div>
                 <div className="fs-2 text-center fw-bolder mb100" id="cost">CMA 學員專屬考試費用減免</div>
-                <div className="text-center mb100">
-                    <img className="w-75" src="./cmaImg/cma_pic5.jpg" alt=""/>
-                </div>
+                <motion.div
+                                initial={{ opacity: 0, x:-100 }}
+                                whileInView={{ opacity: 1, x:0 }}
+                                transition={{
+                                delay: 0.4,
+                                default: { ease: "linear" },
+                            }}>
+                    <div className="text-center mb100">
+                        <img className="w-75" src="./cmaImg/cma_pic5.jpg" alt=""/>
+                    </div>
+                </motion.div>
                 <div className="fs-5 w-75 mx-auto my-auto">
                     Becker Taiwan (捷進顧問) 為 IMA® 在台唯一認證合作教材供應商 (Approved Review Course Provider, ARCP)，雙方簽署特約於2021至2023年提供 CMA 學員考試報名費之高額減免折扣。欲取得優惠折扣詳情，請至 Becker Taiwan 官方 LINE 帳號，傳訊息索取。
                 </div>
@@ -214,62 +264,46 @@ function Cma() {
                 </div>
                 <div className="br mt100 mb100"></div>
                 {/* style="background-image:none;font-weight:bold;" */}
-                <h2 className="tit_ue mb100 mt100 text-center">中文面授教學範圍</h2>
-                <div className="accordion mb100" id="accordionExample">
-                    <div className="accordion-item">
-                        <h2 className="accordion-header" id="headingOne">
-                            <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            {/* style="font-weight:bold;" */}
-                                <span>PART1</span>：Financial Planning, Performance, and Analysis<br />
-                            </button>
-                        </h2>
-                        <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div className="accordion-body">
-                                - External Financial Reporting Decision<br />
-                                - Planning, Budgeting, and Forecasting<br />
-                                - Performance Management<br />
-                                - Cost Management<br />
-                                - Internal Controls<br />
-                                - Technology and Analysis<br />
-                            </div>
-                        </div>
-                        </div>
-                        <div className="accordion-item">
-                        <h2 className="accordion-header" id="headingTwo">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            {/* style="font-weight:bold;" */}
+                <h2 className="fs-2 text-center mb-3 fw-bold">中文面授教學範圍</h2>
+                <Accordion defaultActiveKey="0">
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header>
+                            <span>PART1</span>：Financial Planning, Performance, and Analysis<br />
+                        </Accordion.Header>
+                        <Accordion.Body>
+                            - External Financial Reporting Decision<br />
+                            - Planning, Budgeting, and Forecasting<br />
+                            - Performance Management<br />
+                            - Cost Management<br />
+                            - Internal Controls<br />
+                            - Technology and Analysis<br />
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1">
+                        <Accordion.Header>
                             <span>PART2</span>：Strategic Financial Management<br />
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div className="accordion-body">
-                                - Financial Statement Analysis<br />
-                                - Corporate Finance<br />
-                                - Decision Analysis<br />
-                                - Risk Management<br />
-                                - Investment Decision<br />
-                                - Professional Ethics<br />
-                            </div>
-                        </div>
-                        </div>
-                        <div className="accordion-item">
-                        <h2 className="accordion-header" id="headingThree">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            {/* style="font-weight:bold;" */}
+                        </Accordion.Header>
+                        <Accordion.Body>
+                            - Financial Statement Analysis<br />
+                            - Corporate Finance<br />
+                            - Decision Analysis<br />
+                            - Risk Management<br />
+                            - Investment Decision<br />
+                            - Professional Ethics<br />
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="2">
+                        <Accordion.Header>
                             <span>Course Review</span><br />
-                            </button>
-                        </h2>
-                        <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div className="accordion-body">
-                            {/* style="font-weight:bold;" */}
-                                <span>PART1</span>：Key points and analysis of CMA examination questions<br />
-                                <span>PART2</span>：Key points and analysis of CMA examination questions<br />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                            <span>PART1</span>：Key points and analysis of CMA examination questions<br />
+                            <span>PART2</span>：Key points and analysis of CMA examination questions<br />
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
             </div>
-            <div className="container">
+            <div className="container mt100">
                 <div className="fs-2 text-center mb-3 fw-bold">中文面授專業師資</div>
                 <div className="br mb100"></div>
             </div>

@@ -1,13 +1,22 @@
 import { useState, useEffect } from "react";
 import {Link, NavLink} from "react-router-dom";
 import "./styles/share.scss";
+import { motion } from "framer-motion"
 
 function Share() {
     return (
         <>
             {/* banner */}
             <div class="banner">
-                <img src="./shareImg/share.jpg" alt=""/>
+                <motion.div
+                        initial={{ opacity: 0, x:-100 }}
+                        whileInView={{ opacity: 1, x:0 }}
+                        transition={{
+                        delay: 0.4,
+                        default: { ease: "linear" },
+                        }}>
+                    <img src="./shareImg/share.jpg" alt=""/>
+                </motion.div>
                 <div class="bannerttitle">
                     SHARE
                 </div>

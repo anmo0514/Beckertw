@@ -1,13 +1,22 @@
 import { useState, useEffect } from "react";
 import {Link, NavLink} from "react-router-dom";
 import "./styles/cpa.scss";
+import { motion } from "framer-motion"
 
 function Cpa() {
     return (
         <>
             {/* <!-- banner --> */}
             <div className="banner">
-                <img src="./cpaImg/CPA.jpg" alt=""/>
+                <motion.div
+                        initial={{ opacity: 0, x:-100 }}
+                        whileInView={{ opacity: 1, x:0 }}
+                        transition={{
+                        delay: 0.4,
+                        default: { ease: "linear" },
+                        }}>
+                    <img src="./cpaImg/CPA.jpg" alt=""/>
+                </motion.div>
                 <div className="cpabannertext">
                     Becker<br/>
                     CPA<br/>
@@ -45,50 +54,112 @@ function Cpa() {
             <div className="beckertitlename mb100 mt100" id="why">Why USCPA</div>
             <div className="container whycpa mb100">
                 <div className="sixsq">
-                    <img src="./cpaImg/cpa_icon_01.svg" alt=""/>
-                    <div className="fs-5">美國法律保障</div>
+                <div className="sqcard">
+                        <div className="side mt-5">
+                        <img src="./cpaImg/cpa_icon_01.svg" alt=""/>
+                            <div className="fs-5">美國法律保障</div>
+                        </div>
+                        <div className="side back p-3">
+                            <div className="fs-5 mt-5">美國註冊會計師 (Certified Public Accountant，簡稱 CPA) 執照具美國法律約束力與保障，由美國會計師協會 (AICPA) 舉辦統一會計師考試、由各州依法核發執照。</div>
+                        </div>
+                    </div>
                 </div>
                 <div className="sixsq">
-                    <img src="./cpaImg/cpa_icon_02.svg" alt=""/>
-                    <div className="fs-5">全球會計師始祖</div>
+                <div className="sqcard">
+                        <div className="side mt-5">
+                        <img src="./cpaImg/cpa_icon_02.svg" alt=""/>
+                            <div className="fs-5">全球會計師始祖</div>
+                        </div>
+                        <div className="side back p-3">
+                            <div className="fs-5 mt-5">美國會計師是全球第一個需通過會計專業考試取得的執業證照，也是全球會計師(CPA) 的始祖，推行至今已逾百年，在全球各國皆享有高認可度，是世界上規模最大、最為國際化的法定會計師專業資格。</div>
+                        </div>
+                    </div>
                 </div>
                 <div className="sixsq">
-                    <img src="./cpaImg/cpa_icon_03.svg"alt=""/>
-                    <div className="fs-5">國際職場競爭力</div>
+                <div className="sqcard">
+                        <div className="side mt-5">
+                        <img src="./cpaImg/cpa_icon_03.svg"alt=""/>
+                            <div className="fs-5">國際職場競爭力</div>
+                        </div>
+                        <div className="side back p-3">
+                            <div className="fs-5 mt-3">全球化影響下，跨國企業對「具有國際證照的財會人才」需求大增，會計專業更因可與不同產業結合，發展性隨之加大；美國 CPA 可結合並抵換多國財會專業證照，對需要取得 CPA 執業頭銜、瞭解美國會計制度的管理者而言，除了增加在跨國職場上的競爭力外，更可提升個人專業信用度與權威。</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="container whycpa mb100">
                 <div className="sixsq">
-                    <img src="./cpaImg/cpa_icon_04.svg"alt=""/>
-                    <div className="fs-5">國際高度專業能力</div>
+                <div className="sqcard">
+                        <div className="side mt-5">
+                        <img src="./cpaImg/cpa_icon_04.svg"alt=""/>
+                            <div className="fs-5">國際高度專業能力</div>
+                        </div>
+                        <div className="side back p-3">
+                            <div className="fs-5 mt-5">美國 CPA 是國際性會計師事務所、政府單位招募指標，更是跨國企業、外商公司炙手可熱的高薪人才。通過美國會計師考試，代表分析判斷、思考視野以及語文能力皆符合國際水準，並擁有跨國商業溝通的高度專業能力。</div>
+                        </div>
+                    </div>
                 </div>
                 <div className="sixsq">
-                    <img src="./cpaImg/cpa_icon_05.svg"alt=""/>
-                    <div className="fs-5">留學、移民絕對優勢</div>
+                <div className="sqcard">
+                        <div className="side mt-5">
+                        <img src="./cpaImg/cpa_icon_05.svg"alt=""/>
+                            <div className="fs-5">留學、移民絕對優勢</div>
+                        </div>
+                        <div className="side back p-3">
+                            <div className="fs-5 mt-5">通過 CPA 考試者，在赴美留學、申請名校時佔加分優勢，畢業後取得當地實習機會較同期畢業生更大，獲得正式工作機會也較不具 CPA 資格之留學生多，是移民美國、技術移民澳洲及加拿大並立即進入當地職場的快捷方式。</div>
+                        </div>
+                    </div>
                 </div>
                 <div className="sixsq">
-                    <img src="./cpaImg/cpa_icon_06.svg"alt=""/>
-                    <div className="fs-5">全球趨勢、國際認可</div>
+                <div className="sqcard">
+                        <div className="side mt-5">
+                        <img src="./cpaImg/cpa_icon_06.svg"alt=""/>
+                            <div className="fs-5">全球趨勢、國際認可</div>
+                        </div>
+                        <div className="side back p-3">
+                            <div className="fs-5 mt-5">通過美國會計師考試代表熟悉 IFRS 與 U.S. GAAP 會計雙準則，更強調對美國法規和商業環境的瞭解；持有美國會計師，在國際會計師事務所或跨國企業中，和跨國同事協力工作、或和國際客戶商談生意時，將賦予有力話語權與說服力。</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             {/* <!-- USCPA 有助生涯&職涯規劃 --> */}
             <div className="container mb100 mt100">
                 <div className="br mt100 mb100"></div>
                 <div className="beckertitlename mb100 mt100">USCPA 有助生涯&職涯規劃</div>
+                <motion.div
+                            initial={{ opacity: 0, x:-100 }}
+                            whileInView={{ opacity: 1, x:0 }}
+                            transition={{
+                            delay: 0.4,
+                            default: { ease: "linear" },
+                        }}>
                 <div className="d-flex justify-content-around">
                     <div className="cpaappliance">
-                        <img src="./cpaImg/cpa_1.jpg" alt=""/>
+                        <div className="sqcontent">
+                            <div className="sqtitle">在職人士</div>
+                            <div className="sqdes">專業強化/交換工作/職務晉升/職涯轉換/自行開業/國際移動</div>
+                        </div>
                     </div>
                     <div className="cpaappliance">
-                        <img src="./cpaImg/cpa_2.jpg"alt=""/>
+                        <div className="sqcontent">
+                            <div className="sqtitle">留學生</div>
+                            <div className="sqdes">申請名校/Pre-MBA專業訓練/申請工作實習/爭取實習後留任</div>
+                        </div>
                     </div>
                     <div className="cpaappliance">
-                        <img src="./cpaImg/cpa_3.jpg"alt=""/>
+                        <div className="sqcontent">
+                            <div className="sqtitle">大學生</div>
+                            <div className="sqdes">就業前的專業預備/抵免台會雙照計畫</div>
+                        </div>
                     </div>
                     <div className="cpaappliance">
-                        <img src="./cpaImg/cpa_4.jpg"alt=""/>
+                        <div className="sqcontent">
+                            <div className="sqtitle">移民需求</div>
+                            <div className="sqdes">申請美國移民加分/技術移民澳洲、加拿大、新加坡的快捷方式</div>
+                        </div>
                     </div>
                 </div>
+                </motion.div>
                 <div className="br mt100 mb100"></div>
                 {/* <!-- 考試科目與題型配比 --> */}
                 <div className="beckertitlename mb100 mt100" id="examsubjects">考試科目與題型配比</div>
@@ -116,7 +187,7 @@ function Cpa() {
                             </ul>
                         </div>
                     </div>
-                    <div className="examsubjects bc col-sm-3 col-xs-12">
+                    {/* <div className="examsubjects bc col-sm-3 col-xs-12">
                         <img className="" src="./cpaImg/bec.svg"alt=""/>
                         <div className="subjectname">BEC</div>
                         <div className="fullname">Business Environment & Concepts</div>
@@ -142,7 +213,7 @@ function Cpa() {
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="examsubjects rg col-sm-3 col-xs-12">
                         <img className="" src="./cpaImg/reg.svg"alt=""/>
                         <div className="subjectname">REG</div>
@@ -197,7 +268,17 @@ function Cpa() {
                     美國註冊會計師考試為觀念導向的考試，考生應全面了解考試概念及內容重點，正確判斷題意之外，也要有靈活思考以增快答題速度。另外可從題目練習之中學習答題技巧及方向，而非死背答案。
                 </div>
                 <div className="d-flex subjecttable mb100 mt100">
-                    <div className="col-4">FAR</div>
+                    <motion.div
+                                initial={{ opacity: 0, x:-100 }}
+                                whileInView={{ opacity: 1, x:0 }}
+                                transition={{
+                                delay: 0.4,
+                                default: { ease: "linear" },
+                            }}>
+                        <div className="col-4">
+                            <img className="subpic" src="./cpaImg/far_pic.jpg" alt=""/>
+                        </div>
+                    </motion.div>
                     <div className="col-8">
                         <div className="fs-1 mb-3">Financial Accounting & Reporting</div>
                         <div className="mb100">對於大部份國內會計系相關學生而言，FAR 是相對較容易的科目，考生在學校及工作中均已學過大部份的相關內容，應試者在準備過程中，應注意有些會計處理原則國內 IFRS 及美國不盡相同，同時對於美國的財會公報體系應有一定程度的瞭解。在進入考場前，考生應已做過 Simulation 題目，並且對於法規查詢部份，應知道該如何尋找相關規定。相信只要充份閱讀 Becker 教材並復習，考生應可順利通過此科。
@@ -234,7 +315,7 @@ function Cpa() {
                         </ul>
                     </div>
                 </div>
-                <div className="d-flex subjecttable mb100">
+                {/* <div className="d-flex subjecttable mb100">
                     <div className="col-4">BEC</div>
                     <div className="col-8">
                         <div className="fs-1 mb-3">Business Environment & Concepts</div>
@@ -277,9 +358,19 @@ function Cpa() {
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> */}
                 <div className="d-flex subjecttable mb100">
-                    <div className="col-4">REG</div>
+                    <motion.div
+                                initial={{ opacity: 0, x:-100 }}
+                                whileInView={{ opacity: 1, x:0 }}
+                                transition={{
+                                delay: 0.4,
+                                default: { ease: "linear" },
+                            }}>
+                        <div className="col-4">
+                            <img className="subpic" src="./cpaImg/reg_pic.jpg" alt=""/>
+                        </div>
+                    </motion.div>
                     <div className="col-8">
                         <div className="fs-1 mb-3">Regulation</div>
                         <div className="mb100">此科對於大部份國內學生而言是較為陌生的一科，包含商事法（Business Law）及稅法 （Federal Taxation）。由於美國商事法及稅法體系複雜且龐大，國內考生對於此部份較不易準備。Becker 教材在此部份提供相當有效之幫助，在美國商事法部份，Becker 教材提供完整的架構及示例，可幫助考生建立完整的觀念。在美國聯邦稅法方面，大部份的國內考生均未曾修習過相關的課程，Becker 提供完整的聯邦稅法架構，對於考生而言，可有效減少摸索的時間。
@@ -323,7 +414,17 @@ function Cpa() {
                     </div>
                 </div>
                 <div className="d-flex subjecttable mb100">
-                    <div className="col-4">AUD</div>
+                    <motion.div
+                                initial={{ opacity: 0, x:-100 }}
+                                whileInView={{ opacity: 1, x:0 }}
+                                transition={{
+                                delay: 0.4,
+                                default: { ease: "linear" },
+                            }}>
+                        <div className="col-4">
+                            <img className="subpic" src="./cpaImg/aud_pic.jpg" alt=""/>
+                        </div>
+                    </motion.div>
                     <div className="col-8">
                         <div className="fs-1 mb-3">Auditing & Attestation</div>
                         <div className="mb100">在審計基本觀念及方法上，台灣與美國大致相同， 惟在相關法令規定上差異較大。尤其在2001 年安隆案（Enron）後，相關審計規定不斷更新，沙賓法案（Sarbanes-Oxley Act）通過及 PCAOB 設立，對於審計專業人員之影響甚大。針對此一方面，Becker 完整的介紹美國審計應用與規定，對於考生未來在審計大型國際公司（或在其擔任財會主管）時，將有極大之助益。
@@ -402,11 +503,51 @@ function Cpa() {
             <div className="container">
                 <div className="beckertitlename mb100" id="eligibility">應考步驟與報考資格</div>
                 <div className="d-flex justify-content-around mb100">
-                    <div className="stepcircle bc">Step 1<br/>選州</div>
-                    <div className="stepcircle fr">Step 2<br/>學歷認證</div>
-                    <div className="stepcircle rg">Step 3<br/>考試申請</div>
-                    <div className="stepcircle au">Step 4<br/>准考通知</div>
-                    <div className="stepcircle mau">Step 5<br/>考前叮嚀</div>
+                    <motion.div
+                                initial={{ opacity: 0, y:-100 }}
+                                whileInView={{ opacity: 1, y:0 }}
+                                transition={{
+                                delay: 0.3,
+                                default: { ease: "linear" },
+                            }}>
+                        <div className="stepcircle bc">Step 1<br/>選州</div>
+                    </motion.div>
+                    <motion.div
+                                initial={{ opacity: 0, y:-100 }}
+                                whileInView={{ opacity: 1, y:0 }}
+                                transition={{
+                                delay: 0.4,
+                                default: { ease: "linear" },
+                            }}>
+                        <div className="stepcircle fr">Step 2<br/>學歷認證</div>
+                    </motion.div>
+                    <motion.div
+                                initial={{ opacity: 0, y:-100 }}
+                                whileInView={{ opacity: 1, y:0 }}
+                                transition={{
+                                delay: 0.5,
+                                default: { ease: "linear" },
+                            }}>
+                        <div className="stepcircle rg">Step 3<br/>考試申請</div>
+                    </motion.div>
+                    <motion.div
+                                initial={{ opacity: 0, y:-100 }}
+                                whileInView={{ opacity: 1, y:0 }}
+                                transition={{
+                                delay: 0.6,
+                                default: { ease: "linear" },
+                            }}>
+                        <div className="stepcircle au">Step 4<br/>准考通知</div>
+                    </motion.div>
+                    <motion.div
+                                initial={{ opacity: 0, y:-100 }}
+                                whileInView={{ opacity: 1, y:0 }}
+                                transition={{
+                                delay: 0.7,
+                                default: { ease: "linear" },
+                            }}>
+                        <div className="stepcircle mau">Step 5<br/>考前叮嚀</div>
+                    </motion.div>
                 </div>
                 <div className="fs-2 mb100 text-center">申請門檻</div>
                 <div className="text-center w-75 m-auto">美國會計師考試資格依所報考州別不同，而有不同的資格限制，其通過後申請執照要求也各不相同，報考前可依「報考目的」、「執業需求」與「現有學分數」評估州別選擇。建議如要一一研究，至NASBA 網站會是首要步驟。以下表格就華盛頓、緬因、新罕布夏州與關島地區為例，篩選出總學分數、學位資格、會計與商業學分，與取得執照等註：最新最正確的學分要求與取照規定請上NASBA</div>
@@ -475,6 +616,7 @@ function Cpa() {
                         <div className="fw-bold mt-3">抵免科目<br/>中會、高會、成會、國文</div>
                     </div>
                     <div className="col-6 text-center">
+                        
                         <img src="./cpaImg/dou_icon.svg"alt=""/>
                     <div className="fw-bold mt-3">必考科目<br/>審計、稅法、公司法<br/>&<br/>證券交易法&商業會計法</div>
                     </div>
@@ -487,7 +629,15 @@ function Cpa() {
                 <div className="fs-2 mb100 text-center fw-bold">USCPA VS. HKICPA</div>
                 <div className="m-auto w-100">
                     <div className="d-flex doupic mb100">
+                        <motion.div
+                                    initial={{ opacity: 0, x:-100 }}
+                                    whileInView={{ opacity: 1, x:0 }}
+                                    transition={{
+                                    delay: 0.4,
+                                    default: { ease: "linear" },
+                                }}>
                         <img className="col-5" src="./cpaImg/dou_pic.jpg" alt=""/>
+                        </motion.div>
                         <div className="col-7">
                             <div className="fs-4 mb-3 fw-bold">擁有USCPA 牌照，要怎樣才能換成HKICPA牌照？</div>
                             <div>
@@ -496,7 +646,15 @@ function Cpa() {
                         </div>
                     </div>
                     <div className="d-flex doupic mb100">
-                        <img className="col-5" src="./cpaImg/dou_pic2.jpg" alt=""/>
+                        <motion.div
+                                    initial={{ opacity: 0, x:-100 }}
+                                    whileInView={{ opacity: 1, x:0 }}
+                                    transition={{
+                                    delay: 0.4,
+                                    default: { ease: "linear" },
+                                }}>
+                            <img className="col-5" src="./cpaImg/dou_pic2.jpg" alt=""/>
+                        </motion.div>
                         <div className="col-7">
                             <div className="fs-4 mb-3 fw-bold">USCPA換HKICPA具體免考要求：</div>
                             <div>
@@ -506,7 +664,15 @@ function Cpa() {
                         </div>
                     </div>
                     <div className="d-flex doupic mb100">
-                        <img className="col-5" src="./cpaImg/dou_pic3.jpg" alt=""/>
+                        <motion.div
+                                    initial={{ opacity: 0, x:-100 }}
+                                    whileInView={{ opacity: 1, x:0 }}
+                                    transition={{
+                                    delay: 0.4,
+                                    default: { ease: "linear" },
+                                }}>
+                            <img className="col-5" src="./cpaImg/dou_pic3.jpg" alt=""/>
+                        </motion.div>
                         <div className="col-7">
                             <div className="fs-4 mb-3 fw-bold">USCPA換HKICPA申請會員資格要求：</div>
                             <div>
@@ -517,7 +683,15 @@ function Cpa() {
                         </div>
                     </div>
                     <div className="d-flex doupic mb100">
-                        <img className="col-5" src="./cpaImg/dou_pic4.jpg"alt=""/>
+                        <motion.div
+                                    initial={{ opacity: 0, x:-100 }}
+                                    whileInView={{ opacity: 1, x:0 }}
+                                    transition={{
+                                    delay: 0.4,
+                                    default: { ease: "linear" },
+                                }}>
+                            <img className="col-5" src="./cpaImg/dou_pic4.jpg"alt=""/>
+                        </motion.div>
                         <div className="col-7">
                             <div className="fs-4 mb-3 fw-bold">遞交申請時必須附有下列文件：</div>
                             <div>
@@ -528,7 +702,15 @@ function Cpa() {
                         </div>
                     </div>
                     <div className="d-flex doupic mb100">
-                        <img className="col-5" src="./cpaImg/dou_pic5.jpg"alt=""/>
+                        <motion.div
+                                    initial={{ opacity: 0, x:-100 }}
+                                    whileInView={{ opacity: 1, x:0 }}
+                                    transition={{
+                                    delay: 0.4,
+                                    default: { ease: "linear" },
+                                }}>
+                            <img className="col-5" src="./cpaImg/dou_pic5.jpg"alt=""/>
+                        </motion.div>
                         <div className="col-7">
                             <div className="fs-4 mb-3 fw-bold">USCPA換HKICPA申請牌照資格要求：</div>
                             <div>

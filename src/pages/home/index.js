@@ -1,23 +1,33 @@
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import "./styles/home.scss";
+import { motion } from "framer-motion"
 
 function Home() {
     return (
         <>
             {/* banner */}
             <div className="banner">
-                <img src="./homeImg/1.jpg" alt=""/>
-                <div className="bannerblock"></div>
-                <div className="bannertext">
-                    <div className="lgtext">
-                        Becker<br />
-                        <div className="lxtext">CPA<br /></div>
-                        Exam Review<br />
+                <motion.div
+                    initial={{ opacity: 0, x:100 }}
+                    whileInView={{ opacity: 1, x:0 }}
+                    transition={{
+                    delay: 0.4,
+                    default: { ease: "linear" },
+                    }}>
+                    <img src="./homeImg/1.jpg" alt=""/>
+                </motion.div>
+                    <div className="bannerblock"></div>
+                    <div className="bannertext">
+                        <div className="lgtext">
+                            Becker<br />
+                            <div className="lxtext">CPA<br /></div>
+                            Exam Review<br />
+                        </div>
+                        全球最具權威領導品牌的<br />
+                        財會培訓軟體<br />
                     </div>
-                    全球最具權威領導品牌的<br />
-                    財會培訓軟體<br />
-                </div>
+                
             </div>
             {/* news */}
             <div className="container">

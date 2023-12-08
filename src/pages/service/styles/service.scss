@@ -1,0 +1,159 @@
+
+.tit_ue {
+	width: 95%;
+	font-size: 1.6em;
+}
+.cpm {
+	width: 45%;
+}
+.cpe {
+	background-color: #fff9e7;
+	font-size: 1.2em;
+}
+.eg { background-color: #e7f9ee;}
+.eb { background-color: #e9f9fc;}
+.ed { background-color: #e5f5fc;}
+.ex { background-color: #eaf1fb;}
+.egs { 
+	color: #0fc45b;
+}
+.ebs { 
+	color: #28c4e5;
+}
+.eds { 
+	color: #009cdd;
+}
+.exs { 
+	color: #3079d5;
+}
+.cpl {
+	max-width: 550px;
+	float: right;
+	margin: 2em ;
+	text-align: right;
+}
+.cpr {
+	max-width: 550px;
+	float: left;
+	margin: 2em ;
+}
+.exs { 
+	color: #3079d5;
+}
+.cpit {
+	background-color: #ffc216;
+	color: #fff;
+	text-align: center;
+	padding-top: 2em;
+}
+.cpt {
+	width: 10%;
+}
+.wt {
+	background-color: #fff;
+}
+.compare table {
+    border-collapse: collapse;
+    border: 1px solid #F6F6F6;
+    background-color: #009CDD;
+    width: 100%;
+}
+
+.compare tr {
+    border: 1px solid #F6F6F6;
+    background-color: #009CDD;
+}
+
+.compare td {
+    border: 1px solid #F6F6F6;
+    background-color: #F6F6F6;
+    width: 25%;
+}
+
+.compare .a1 {
+    background-color: #0F3255;
+    color: #FFFFFF;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.compare .a2 {
+    background-color: #3079D5;
+    color: #FFFFFF;
+    padding: 10px;
+}
+
+.compare .a3 {
+    background-color: #FFC216;
+    color: #FFFFFF;
+    padding: 10px;
+    color: #000000;
+}
+
+.compare .a4 {
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+    padding: 10px;
+    color: #000000;
+}
+.titcp {
+	font-size: 1.3em;
+	color: #0083c7;
+	text-align: center;
+	background-color: #fff;
+}
+.epg, .epb, .epd, .epx {
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: Contain;
+	padding-top: 3em;
+}
+.epg { 
+	background-color: #0fc45b;
+	background-image: url(../../../../public/serviceImg/bg_epg.png);
+}
+.epb { 
+	background-color: #28c4e5;
+	background-image: url(../../../../public/serviceImg/bg_epb.png);
+}
+.epd { 
+	background-color: #009cdd;
+	background-image: url(../../../../public/serviceImg/bg_epd.png);
+}
+.epx { 
+	background-color: #3079d5;
+	background-image: url(../../../../public/serviceImg/bg_epx.png);
+}
+@media screen and (max-width: 768px) {
+    .xxx-hide {
+        display: none;
+    }
+}
+
+// 六格特效
+.sixsq {
+	cursor: pointer;
+	perspective: 600;
+}
+.sqcard {
+	height: 100%;
+	transform-style: preserve-3d;
+	transition: all 1s ease-in-out;
+	width: 100%;
+}
+.sqcard:hover {
+	transform: rotateX(180deg);
+}
+.sqcard .side {
+	backface-visibility: hidden;
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+	position: absolute;
+}
+.sqcard .back {
+	color: #ffffff;
+	transform: rotateX(180deg);
+	text-align: center;
+	
+}
