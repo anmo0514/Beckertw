@@ -7,14 +7,25 @@
     text-align: center;
     font-size: 5rem;
     color: #ffff;
+    position: relative;
 }
 .faqcpa {
     background-color: #152046;
     height: 50%;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    cursor: pointer;
 }
 .faqcma {
     background-color: #2B418E;
     height: 50%;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    background-color: #2B418E;
+    height: 50%;
+    cursor: pointer;
 }
 .question {
     font-style: 2rem;

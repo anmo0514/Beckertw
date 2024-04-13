@@ -2,8 +2,77 @@ import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import "./styles/home.scss";
 import { motion } from "framer-motion"
+import axios from "axios";
 
-function Home() {
+
+function Home(props) {
+    
+    const [groupedData, setGroupedData] = useState({});
+    useEffect(() => {
+        // 一開始就顯示2024年的資料
+        handleButtonClick(2023);
+    }, []);
+    const handleButtonClick = async (year) => {
+        try {
+            const cateId = getCateIdByYear(year);
+            const response = await axios.get(`http://localhost:3700/home/selectShareByYear/${cateId}`);
+            setGroupedData(response.data);
+            setCurrentPage(1); 
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    const getCateIdByYear = (year) => {
+        switch (year) {
+            case 2020:
+                return 59;
+            case 2021:
+                return 60;
+            case 2022:
+                return 69;
+            case 2023:
+                return 73;
+            case 2024:
+                return 79;
+            default:
+                return null;
+        }
+    };
+
+    const years = [2020, 2021, 2022, 2023, 2024];
+    
+    const [currentPage, setCurrentPage] = useState(1);
+    const cardsPerPage = 5;
+    const totalCards = Object.values(groupedData)
+    .flat()
+    .length;
+    const totalPages = Math.ceil(totalCards / cardsPerPage);
+    const startIndex = (currentPage - 1) * cardsPerPage;
+    const endIndex = startIndex + cardsPerPage;
+    const currentCards = Array.isArray(groupedData) ? groupedData.slice(startIndex, endIndex) : [];
+    const getPageNumbersToShow = () => {
+        const maxPageNumbersToShow = 10;
+        const middlePage = currentPage;
+        const halfMaxPageNumbersToShow = Math.floor(maxPageNumbersToShow / 2);
+    
+        let startPage = middlePage - halfMaxPageNumbersToShow;
+        let endPage = middlePage + halfMaxPageNumbersToShow;
+    
+        if (startPage <= 0) {
+            startPage = 1;
+            endPage = Math.min(totalPages, maxPageNumbersToShow);
+        }
+    
+        if (endPage > totalPages) {
+            endPage = totalPages;
+            startPage = Math.max(1, totalPages - maxPageNumbersToShow + 1);
+        }
+    
+        return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+    };
+    
     return (
         <>
             {/* banner */}
@@ -16,6 +85,7 @@ function Home() {
                     default: { ease: "linear" },
                     }}>
                     <img src="./homeImg/1.jpg" alt=""/>
+                    
                 </motion.div>
                     <div className="bannerblock"></div>
                     <div className="bannertext">
@@ -132,8 +202,8 @@ function Home() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="video d-flex justify-content-evenly">
-                        <iframe width="625" height="400" src="https://www.youtube.com/embed/NrcEIxqTjLM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        <iframe width="625" height="400" src="https://www.youtube.com/embed/S5lHuzUOflI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe width="625" height="400" src="https://www.youtube.com/embed/NrcEIxqTjLM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                        <iframe width="625" height="400" src="https://www.youtube.com/embed/S5lHuzUOflI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                     </div>
                 </div>
             </div>
@@ -143,152 +213,34 @@ function Home() {
                     <div className="title col-3">Shares</div>
                     <div className="item col-9">
                         <ul className="nav nav-tabs" id="myTab1" role="tablist">
-                            <li className="nav-item" role="presentation">
-                                <button className="nav-link active" id="a-tab" data-bs-toggle="tab" data-bs-target="#a" type="button" role="tab" aria-controls="a" aria-selected="true">2023</button>
+                            {years.reverse().map((year) => (
+                                <li className="nav-item" role="presentation" key={year}>
+                                    <button className="nav-link" type="button" onClick={() => handleButtonClick(year)}>{year}</button>
                                 </li>
-                                <li className="nav-item" role="presentation">
-                                <button className="nav-link" id="b-tab" data-bs-toggle="tab" data-bs-target="#b" type="button" role="tab" aria-controls="b" aria-selected="false">2022</button>
-                                </li>
-                                <li className="nav-item" role="presentation">
-                                <button className="nav-link" id="c-tab" data-bs-toggle="tab" data-bs-target="#c" type="button" role="tab" aria-controls="c" aria-selected="false">2021</button>
-                                </li>
-                                <li className="nav-item" role="presentation">
-                                    <button className="nav-link" id="2020-tab" data-bs-toggle="tab" data-bs-target="#d" type="button" role="tab" aria-controls="d" aria-selected="false">2020</button>
-                                </li>
-                                <li className="nav-item" role="presentation">
-                                    <button className="nav-link" id="2019-tab" data-bs-toggle="tab" data-bs-target="#e" type="button" role="tab" aria-controls="e" aria-selected="false">2019</button>
-                                </li>
-                                <div className="form-check form-check-inline">
-                                    <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"/>
-                                    <label className="form-check-label" for="inlineCheckbox1">CPA</label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-                                        <label className="form-check-label" for="inlineCheckbox2">CMA</label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"/>
-                                        <label className="form-check-label" for="inlineCheckbox3">學分班</label>
-                                    </div>
-                            </ul>
-                            
-                    </div>
-                    <div className="tabcontent">
-                        <div className="tab-content" id="myTab1Content">
-                            <div className="tab-pane fade show active" id="a" role="tabpanel" aria-labelledby="a-tab">
-                                <div className="d-flex justify-content-around">
-                                    <div className="card d">
-                                        <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                        <div className="card-body">
-                                            <h5 className="card-title">文/ 張同學</h5>
-                                            <p className="card-text">申請關島 (Guam) CPA<br/>
-                                                國立中興大學土木工程系畢業</p>
-                                            <Link href="#" className="btn btn-primary">more</Link>
+                            ))}
+                        </ul>
+                        <div className="container">
+                            <div className="tabcontent">
+                                <div className="tab-content" id="myTab1Content">
+                                    {currentCards.map((item, index) => (
+                                        <div className="card" key={`${index}-${item.art_id}`}>
+                                            <div className="card-body">
+                                                <h5 className="card-title" >{item.title}</h5>
+                                                <div ></div>
+                                                <p className="card-text" dangerouslySetInnerHTML={{ __html: item.intro }}></p>
+                                                <Link href="#" className="btn btn-primary">more</Link>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="card">
-                                        <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                        <div className="card-body">
-                                            <h5 className="card-title">文/ 林同學</h5>
-                                            <p className="card-text">申請關島 (Guam) CPA<br/>
-                                            國立中興大學土木工程系畢業</p>
-                                            <Link href="#" className="btn btn-primary">more</Link>
-                                        </div>
-                                    </div>
-                                    <div className="card d">
-                                        <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                        <div className="card-body">
-                                            <h5 className="card-title">文/ 張同學</h5>
-                                            <p className="card-text">申請關島 (Guam) CPA<br/>
-                                                國立中興大學土木工程系畢業</p>
-                                            <Link href="#" className="btn btn-primary">more</Link>
-                                        </div>
-                                    </div>
-                                    <div className="card">
-                                        <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                        <div className="card-body">
-                                            <h5 className="card-title">文/ 林同學</h5>
-                                            <p className="card-text">申請關島 (Guam) CPA<br/>
-                                            國立中興大學土木工程系畢業</p>
-                                            <Link href="#" className="btn btn-primary">more</Link>
-                                        </div>
-                                    </div>
+                                    ))}
                                 </div>
                             </div>
-                            <div className="tab-pane fade" id="b" role="tabpanel" aria-labelledby="b-tab">
-                                <div className="d-flex justify-content-around">
-                                    <div className="card d">
-                                        <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                        <div className="card-body">
-                                            <h5 className="card-title">文/ 張同學</h5>
-                                            <p className="card-text">申請關島 (Guam) CPA<br/>
-                                                國立中興大學土木工程系畢業</p>
-                                            <Link href="#" className="btn btn-primary">more</Link>
-                                        </div>
-                                    </div>
-                                    <div className="card">
-                                        <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                        <div className="card-body">
-                                            <h5 className="card-title">文/ 林同學</h5>
-                                            <p className="card-text">申請關島 (Guam) CPA<br/>
-                                            國立中興大學土木工程系畢業</p>
-                                            <Link href="#" className="btn btn-primary">more</Link>
-                                        </div>
-                                    </div>
-                                    <div className="card d">
-                                        <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                        <div className="card-body">
-                                            <h5 className="card-title">文/ 張同學</h5>
-                                            <p className="card-text">申請關島 (Guam) CPA<br/>
-                                                國立中興大學土木工程系畢業</p>
-                                            <Link to="#" className="btn btn-primary">more</Link>
-                                        </div>
-                                    </div>
-                                    <div className="card">
-                                        <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                        <div className="card-body">
-                                            <h5 className="card-title">文/ 林同學</h5>
-                                            <p className="card-text">申請關島 (Guam) CPA<br/>
-                                            國立中興大學土木工程系畢業</p>
-                                            <Link to="#" className="btn btn-primary">more</Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="tab-pane fade" id="c" role="tabpanel" aria-labelledby="c-tab">
-                                <div className="card">
-                                    <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                    <div className="card-body">
-                                        <h5 className="card-title">文/ 陳同學</h5>
-                                        <p className="card-text">申請關島 (Guam) CPA<br/>
-                                            國立中興大學土木工程系畢業</p>
-                                        <Link to="#" className="btn btn-primary">more</Link>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="tab-pane fade" id="d" role="tabpanel" aria-labelledby="d-tab">
-                                <div className="card">
-                                    <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                    <div className="card-body">
-                                        <h5 className="card-title">文/ 黃同學</h5>
-                                        <p className="card-text">申請關島 (Guam) CPA<br/>
-                                            國立中興大學土木工程系畢業</p>
-                                        <Link to="#" className="btn btn-primary">more</Link>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="tab-pane fade" id="e" role="tabpanel" aria-labelledby="e-tab">
-                            {/* style="width: 18rem;" */}
-                                <div className="card">
-                                    <img src="./image/2.jpg" className="card-img-top" alt=""/>
-                                    <div className="card-body">
-                                        <h5 className="card-title">文/ 蕭同學</h5>
-                                        <p className="card-text">申請關島 (Guam) CPA<br/>
-                                            國立中興大學土木工程系畢業</p>
-                                        <Link to="#" className="btn btn-primary">more</Link>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                        <div className="pagination mb100">
+                            {getPageNumbersToShow().map((number) => (
+                                <button className="page-link" key={number} onClick={() => setCurrentPage(number)}>
+                                    {number}
+                                </button>
+                            ))}
                         </div>
                     </div>
                 </div>

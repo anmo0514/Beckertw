@@ -1,5 +1,267 @@
 /* Glory */
-.videoctrl {
+.timelinectrl {
     width: 100%;
-    opacity: 0.5;
+    height: 100vh;
+}
+
+$bg: #152046;
+
+
+
+.controls {
+width: 40px;
+height: 40px;
+position: absolute;
+left: 120px;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+
+&:hover {
+&:after {
+    transform: translateX(-10px) rotate(45deg);
+}
+
+&:active {
+    &:after {
+    transform: translateX(-20px) rotate(45deg);
+    transition: 300ms all;
+    }
+}
+}
+
+&:after {
+content: "";
+position: absolute;
+width: 16px;
+height: 16px;
+transform: rotate(45deg);
+border-left: 4px solid #fff;
+border-bottom: 4px solid #fff;
+transition: 500ms all;
+}
+
+&.next {
+left: auto;
+right: 120px;
+transform: rotate(180deg);
+}
+}
+
+.time-line {
+width: 100%;
+height: 100%;
+background-color:$bg;
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+bottom: 0;
+// overflow-x: hidden;
+
+
+* {
+transition: 800ms all cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dates-overflow {
+left: 0;
+width: 500vw;
+position: absolute;
+bottom: 50px;
+height: 40%;
+}
+
+.dates-wrap {
+display: inline-block;  
+position: absolute;
+height: 100%;
+left: calc(45vw - 80px);
+
+&:before, &:after {
+    content: '';
+    position: absolute;
+    width: 160px;
+    height: 50%;
+    left: -1px;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to right, #152046 0%,rgba(125,185,232,0) 100%);
+    z-index: 2;
+}
+
+&:after {
+    left: auto;
+    right: -1px;
+    background: linear-gradient(to left, #152046 0%,rgba(125,185,232,0) 100%);
+    transform: translate(50%, -50%);
+}
+
+.date {
+    width: 160px;
+    position: relative;
+    float: left;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 800ms all cubic-bezier(0.23, 1, 0.32, 1);
+
+    .date-content {
+    visibility: hidden;
+    position: absolute;
+    text-align: center;
+    width: 340px;
+    height: 340px;
+    bottom: 100%;
+    margin-bottom: 75px;
+    border-radius: 3px;
+    transform-origin: 50% 100%;
+    transform: scale(0.7);
+    box-shadow: 0 10px 30px rgba(0,0,0,0);
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 1px;
+        top: 100%;
+        margin-top: 8px;
+        height: 60px;
+        opacity: 0;
+        background-color: #fff;
+        transform: scaleY(0);
+        transform-origin: 100% 100%;
+        transition: 800ms all cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .date-image img{
+        width: 200px;
+        object-fit: contain;
+    }
+
+    > div {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    .date-text {
+        width:500px;
+        height: 60px;
+        position: absolute;
+        bottom: -300px;
+        color: #ffff;
+        font-size: 1.5rem;
+    }
+    }
+
+    .date-year {
+    opacity: 0.4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+    
+    &:hover {
+        opacity: 1 !important;
+        &:after {
+        transform: scale(1) !important;
+        }
+    }
+
+    p {
+        position: absolute;
+        top: 10%;
+        line-height: 0;
+        color: #fff;
+        font-size: 35px;
+        font-weight: 900;
+        transform: scale(0.4);
+        z-index: 2;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background-color: #fff;
+        bottom: 100%;
+        margin-bottom: -7px;
+        border-radius: 50%;
+        transform: scale(0.4);
+        transition: 500ms all;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 200%;
+        height: 1px;
+        background-color: #fff;
+    }
+    }
+
+    &.sibling {
+    .date-year {
+        opacity: 0.6;
+        &:after {
+        transform: scale(0.8);
+        }
+        p {
+        transform: scale(0.6);
+        }
+    }
+    }
+
+    &.active {
+    & + .date {
+        .date-year {
+        opacity: 0.6;
+        
+        &:after {
+            transform: scale(0.8);
+        }          
+        p {
+            transform: scale(0.6);
+        }
+        }
+    }
+    
+    .date-year {
+        opacity: 1;
+        &:before {
+        width: calc(200% - 11px);
+        }
+        &:after {
+            transform: scale(1);
+        } 
+        p {
+        transform: scale(1.2);
+        }
+    }
+
+    .date-content {
+        transform: scale(1);
+        visibility: visible;         
+        
+        &:after {
+        transition-delay: 200ms;
+        opacity: 1;
+        transform: scaleY(1);
+        }
+        div {
+        transition-delay: 200ms;
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+        }
+    }
+    }
+}
+
+}
 }

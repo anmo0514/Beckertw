@@ -24,8 +24,9 @@ function Cpa() {
                         Exam Review
                     </div>
                     <div className="fx">
-                        <button type="button" className="btn btn-secondary">詳情介紹</button>
-                        <button type="button" className="btn btn-outline-secondary">申請報名</button>
+                        
+                        <button type="button" className="btn btn-outline-secondary"><Link className="text-secondary" to="/registration">申請報名</Link></button>
+                        <button type="button" className="btn btn-secondary"><a href="#why" className="text-light">詳情介紹</a></button>
                     </div>
                 </div>
             </div>

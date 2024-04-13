@@ -4,6 +4,18 @@ import "./styles/glory.scss";
 import { motion } from "framer-motion"
 
 export default function Glory() {
+    const [activeDate, setActiveDate] = useState(0);
+    const years = [1996, 2007]; 
+    const img = ["1996", "2007"]; 
+    const content = ["捷進顧問公司榮獲中華民國消費者評審委員頒發「消費者績優廠商金牌獎」", "捷進顧問公司榮獲美國 Becker 表揚頒發「教學創意獎」"]; 
+
+    const handleControlClick = (direction) => {
+        setActiveDate((prevActiveDate) => prevActiveDate + direction);
+    };
+
+    const handleDateClick = (index) => {
+        setActiveDate(index);
+    };
     return (
         <>
             {/* banner */}
@@ -38,10 +50,30 @@ export default function Glory() {
                 </div>
             </div>
             {/* Glorycontent */}
-            <div class="videoctrl">
-                <video autoPlay loop muted>
-                    <source src="/aboutImg/1104341247-preview.mp4" type="video/mp4"/>
-                </video>
+            <div class="timelinectrl">
+                <div class="time-line">
+                    <div class="controls" onClick={() => handleControlClick(-1)} data-direction="-1"></div>
+                    <div class="controls next" onClick={() => handleControlClick(1)} data-direction="1"></div>
+                    <div class="dates-overflow">
+                        <div class="dates-wrap">
+                        {years.map((year, index) => (
+                            <div key={index} className={`date ${index === activeDate ? "active" : ""}`} onClick={() => handleDateClick(index)}>
+                            <div class="date-year">
+                                <p>{year}</p>
+                            </div>
+                            <div class="date-content">
+                                <div class="date-image">
+                                    <img src={`/aboutImg/${img[index]}.jpg`} alt={`${year} Image`} />
+                                </div>
+                                <div className="date-text">
+                                {content}
+                                </div>
+                            </div>
+                        </div>
+                        ))}
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );

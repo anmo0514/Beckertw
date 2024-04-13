@@ -231,7 +231,7 @@ function Service() {
                             </div>
                             <div className="cash">120,000</div>
                             
-                            <Link to="https://forms.gle/giXyV9tj6gQFhpu68" target="_blank" className="bt_prd">»報名與購買</Link>
+                            <Link to="/registration" className="bt_prd">»報名與購買</Link>
                         </div>
                     </div>
                     <div className="col-4">
@@ -259,7 +259,7 @@ function Service() {
                             </div>
                             <div className="cash">80,000</div>
                             
-                            <Link to="https://forms.gle/giXyV9tj6gQFhpu68" target="_blank" className="bt_prd">»報名與購買</Link>
+                            <Link to="/registration" className="bt_prd">»報名與購買</Link>
                         </div>
                     </div>
                     <div className="col-4">
@@ -285,7 +285,7 @@ function Service() {
                             </div>
                             <div className="cash">46,000</div>
                             
-                            <Link to="https://forms.gle/giXyV9tj6gQFhpu68" target="_blank" className="bt_prd">»報名與購買</Link>
+                            <Link to="/registration" className="bt_prd">»報名與購買</Link>
                         </div>
                     </div>
                 </div>
@@ -312,7 +312,7 @@ function Service() {
                             </div>
                             <div className="cash">120,000</div>
                             
-                            <Link to="https://forms.gle/giXyV9tj6gQFhpu68" target="_blank" className="bt_prd">»報名與購買</Link>
+                            <Link to="/registration" className="bt_prd">»報名與購買</Link>
                         </div>
                     </div>
                     <div className="col-4">
@@ -335,7 +335,7 @@ function Service() {
                             </div>
                             <div className="cash">80,000</div>
                             
-                            <Link to="https://forms.gle/giXyV9tj6gQFhpu68" target="_blank" className="bt_prd">»報名與購買</Link>
+                            <Link to="/registration" className="bt_prd">»報名與購買</Link>
                         </div>
                     </div>
                     <div className="col-4">
@@ -357,7 +357,7 @@ function Service() {
                             </div>
                             <div className="cash">46,000</div>
                             
-                            <Link to="https://forms.gle/giXyV9tj6gQFhpu68" target="_blank" className="bt_prd">»報名與購買</Link>
+                            <Link to="/registration" className="bt_prd">»報名與購買</Link>
                         </div>
                     </div>
                 </div>

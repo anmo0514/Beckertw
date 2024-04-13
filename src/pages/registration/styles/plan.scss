@@ -1,0 +1,77 @@
+/* CPA */
+.servicenavbar {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    top: -100px;
+    width: 100%;
+}
+
+  /* Carousel */
+.about-us-service-title {
+text-align: center;
+}
+
+.carousel-container {
+padding: 20px;
+display: flex;
+position: relative;
+margin: 0 auto;
+height: 100vh;
+}
+
+.carousel-card {
+transition: transform 1s ease, opacity 0.5s ease;
+opacity: 1;
+width: 20%;
+position: absolute;
+color: #FFF;
+cursor: pointer;
+}
+.planh {
+    height: 660px;
+}
+/* 修正這裡的選擇器，使用類名而不是 ID */
+#far-left {
+left: 15%;
+transform: scale(.9) translateY(0%) translateX(-50%);
+filter: brightness(.5);
+z-index: 5;
+}
+
+#left {
+left: 30%;
+transform: scale(1) translateY(0%) translateX(-50%);
+filter: brightness(.6);
+z-index: 10;
+}
+
+#center {
+left: 50%;
+transform: scale(1.05) translateY(0%) translateX(-50%);
+z-index: 15;
+}
+
+#right {
+left: 70%;
+transform: scale(1) translateY(0%) translateX(-50%);
+filter: brightness(.6);
+z-index: 10;
+}
+
+#far-right {
+left: 80%;
+transform: scale(.9) translateY(0%) translateX(-50%);
+filter: brightness(.5);
+z-index: 5;
+}
+
+.carousel-card:hover {
+    border-color: #007bff;
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+}
+
+.nextstep {
+    width: 100%;
+    text-align: center;
+}

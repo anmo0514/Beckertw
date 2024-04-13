@@ -26,8 +26,8 @@ function Cma() {
                         認證合作教材供應商 (Approved Review Course Provider)
                     </div>
                     <div className="fx w-50 mt-5">
-                        <button type="button" className="btn btn-secondary">詳情介紹</button>
-                        <button type="button" className="btn btn-outline-secondary">申請報名</button>
+                        <button type="button" className="btn btn-secondary"><a href="#why" className="text-light">詳情介紹</a></button>
+                        <button type="button" className="btn btn-outline-secondary"><Link className="text-secondary" to="/registration">申請報名</Link></button>
                     </div>
                 </div>
             </div>
