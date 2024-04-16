@@ -9,7 +9,7 @@ function Share() {
     const [groupedData, setGroupedData] = useState([]);
     const [sharesEssence, setSharesEssence] = useState([]);
     const [selectedCard, setSelectedCard] = useState([]);
-    
+
     useEffect(() => {
         // 一開始就顯示2024年的資料
         handleButtonClick(2023);
@@ -33,7 +33,7 @@ function Share() {
     const handleButtonClick = async (year) => {
         try {
             const cateId = getCateIdByYear(year);
-            const response = await axios.get(`http://localhost:3700/home/selectShareByYear/${cateId}`);
+            const response = await axios.get(`http://localhost:3700/share/selectShareByYear/${cateId}`);
             setGroupedData(response.data);
             setCurrentPage(1); 
             console.log(response.data);
@@ -91,7 +91,6 @@ function Share() {
     };
     //more按鈕資料
     const handleMoreClick = (item) => {
-        // 将所选 card 的数据存储在组件状态中
         setSelectedCard(item);
     };
     return (
@@ -153,7 +152,7 @@ function Share() {
                                                         <h5 className="card-title" >{item.title}</h5>
                                                         <div ></div>
                                                         <p className="card-text" dangerouslySetInnerHTML={{ __html: item.intro }}></p>
-                                                        <Link to={`/details/${selectedCard.art_id}`} className="btn btn-primary">more</Link>
+                                                        <Link to={`/share/detail/${item.art_id}`} className="btn btn-primary" onClick={() => handleMoreClick(item)}>more</Link>
                                                     </div>
                                                 </div>
                                             ))}

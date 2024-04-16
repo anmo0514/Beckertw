@@ -4,6 +4,7 @@ import Admlayout from "./components/admlayout.js";
 
 // import 路由...
 import Home from "./pages/home";
+import Newdetail from "./pages/home/newdetail";
 import Origin from "./pages/about/origin";
 import Glory from "./pages/about/glory";
 import Duty from "./pages/about/duty";
@@ -62,6 +63,7 @@ function App() {
               <Layout>
                 <Routes>
                   <Route index element={<Home />} />
+                  <Route path="/home/newdetail/:new_id" element={<Newdetail />}/>
                   <Route path="/about/*">
                     <Route index element={<Navigate to="/about/origin" />} />
                     <Route path="origin" element={<Origin />} />
