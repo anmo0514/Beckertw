@@ -4,6 +4,18 @@ import "./styles/registration.scss";
 import { motion } from "framer-motion"
 
 function Registration() {
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleCheckboxChange = () => {
+        setIsChecked(!isChecked);
+    };
+
+    const handleNextButtonClick = (e) => {
+        if (!isChecked) {
+            e.preventDefault(); // 阻止點擊事件的默認行為
+            alert("請先勾選已詳閱並且了解");
+        }
+    };
     return (
         <>
             {/* <!-- banner --> */}
@@ -89,11 +101,11 @@ function Registration() {
                         </div>
                     </p>
                     <div className="text-center">
-                    <label>
-                        <input className="m-2" type="checkbox" value="read" />
-                        <span>我已詳閱並且了解</span>
-                    </label>
-                        <Link to="./plan" className="btn btn-primary m-3">下一步</Link>
+                        <label>
+                            <input className="m-2" type="checkbox" value="read" checked={isChecked} onChange={handleCheckboxChange} required />
+                            <span>我已詳閱並且了解</span>
+                        </label>
+                        <Link to="./plan" className="btn btn-primary m-3" onClick={handleNextButtonClick}>下一步</Link>
                     </div>
                     </div>
                 </div>

@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import {Link, NavLink} from "react-router-dom";
+import { useAuth } from "../pages/login/AuthProvider";
 import "../styles/navbar.scss";
 
 export default function Navbar() {
+    
+    const { authorized, logout } = useAuth();
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor:'#152046'}}>
@@ -50,11 +54,7 @@ export default function Navbar() {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="./faq">FAQ</Link>
                                 </li>
-                                <Link to="/member">
-                                    <li className="nav-item navicon">
-                                        <i className="fa-solid fa-user"></i>
-                                    </li>
-                                </Link>
+                                
                                 <Link to="/consult">
                                     <li className="nav-item navicon">
                                             <i className="fa-solid fa-comment"></i>
@@ -65,6 +65,29 @@ export default function Navbar() {
                                             <i className="fa-solid fa-headphones"></i>
                                     </li>
                                 </Link>
+                                <li className="nav-item navicon">
+                                    {authorized ? (
+                                            null
+                                    ) : (
+                                        <div>
+                                            <Link to="/member/memberlogin" className="text-white">
+                                                <i className="fa-solid fa-user"/>
+                                            </Link>
+                                        </div>
+                                    )}
+                                    {authorized ? (
+                                        <div className="">
+                                                <Link to="/member" className="text-white">
+                                                <i className="fa-solid fa-user"/>
+                                                </Link>
+                                                <div className="text-white logouttext" onClick={() => {logout(); }}>
+                                                登出
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        null
+                                    )}
+                                </li>
                             </ul>
                         </div>
                     </div>

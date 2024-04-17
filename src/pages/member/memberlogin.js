@@ -1,8 +1,16 @@
 import { useState, useRef } from "react";
 import "./styles/memberlogin.scss";
 import { motion } from "framer-motion";
+import { useAuth } from "../login/AuthProvider";
+import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
+import Register from "./components/register";
+import Login from "./components/login";
 
-function Member() {
+
+function Memberlogin() {
+    
+    //表單動態轉換
     const [showLoginForm, setShowLoginForm] = useState(true);
     const userFormsRef = useRef(null);
     const userOptionsTextRef = useRef(null);
@@ -50,40 +58,12 @@ function Member() {
                             {showLoginForm ? (
                                 <div className="user_forms-login">
                                     <h2 className="forms_title">登入會員</h2>
-                                    <form className="forms_form">
-                                    <fieldset className="forms_fieldset">
-                                        <div className="forms_field">
-                                        <input type="email" placeholder="Email" className="forms_field-input" required autoFocus />
-                                        </div>
-                                        <div className="forms_field">
-                                        <input type="password" placeholder="Password" className="forms_field-input" required />
-                                        </div>
-                                    </fieldset>
-                                    <div className="forms_buttons">
-                                        <button type="button" className="forms_buttons-forgot">忘記密碼?</button>
-                                        <input type="submit" value="Log In" className="forms_buttons-action"/>
-                                    </div>
-                                    </form>
+                                    <Login/>
                                 </div>
                             ) : (
                                 <div className="user_forms-signup">
                                     <h2 className="forms_title">註冊會員</h2>
-                                    <form className="forms_form">
-                                    <fieldset className="forms_fieldset">
-                                        <div className="forms_field">
-                                        <input type="text" placeholder="Full Name" className="forms_field-input" required />
-                                        </div>
-                                        <div className="forms_field">
-                                        <input type="email" placeholder="Email" className="forms_field-input" required />
-                                        </div>
-                                        <div className="forms_field">
-                                        <input type="password" placeholder="Password" className="forms_field-input" required />
-                                        </div>
-                                    </fieldset>
-                                    <div className="forms_buttons">
-                                        <input type="submit" value="Sign up" className="forms_buttons-action"/>
-                                    </div>
-                                    </form>
+                                    <Register/>
                                 </div>
                             )}
                             </div>
@@ -94,4 +74,4 @@ function Member() {
     );
 }
 
-export default Member;
+export default Memberlogin;

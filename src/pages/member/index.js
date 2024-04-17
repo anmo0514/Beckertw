@@ -30,7 +30,7 @@ function Member() {
                 {/* <!-- Service Nav--> */}
                 <div className="memberbar mt100 mb100">
                     {/* style="background-color: #2B418E;" */}
-                    <Link to=""><div className="membersq mainbg">基本<div className="fs-3">資料編輯</div></div></Link>
+                    <Link to="./memarea"><div className="membersq mainbg">基本<div className="fs-3">資料編輯</div></div></Link>
                     <Link to=""><div className="membersq yellowbg">顧問<div className="fs-3">初談紀錄</div></div></Link>
                     <Link to="./consult"><div className="membersq greenbg">中文<div className="fs-3">線上發問系統</div></div></Link>
                 </div>
