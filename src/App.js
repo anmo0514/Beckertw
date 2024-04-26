@@ -41,6 +41,9 @@ import AdmPartner from "./pages/admpartner";
 import AdmMemberView from "./pages/admmemberview";
 import AdmReport from "./pages/admreport";
 import AdmLogin from "./pages/admlogin";
+import AdmNews from "./pages/admnews";
+import AdmVideo from "./pages/admvideo";
+import AdmShare from "./pages/admshare";
 
 function App() {
   return (
@@ -67,6 +70,9 @@ function App() {
                     <Route path="admpartner" element={<AdmPartner />} />
                     <Route path="admmemberview" element={<AdmMemberView />} />
                     <Route path="admreport" element={<AdmReport />} />
+                    <Route path="admnews" element={<AdmNews />} />
+                    <Route path="admvideo" element={<AdmVideo />} />
+                    <Route path="admShare" element={<AdmShare />} />
                     {/* 在這裡添加其他管理員路由 */}
                   </Routes>
                 </Admlayout>

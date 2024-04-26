@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import "./styles/adm.scss";
 import { motion } from "framer-motion"
 
-function Admh() {
+function AdmCrm() {
     return (
         <>
             {/* <!-- banner --> */}
@@ -32,4 +32,4 @@ function Admh() {
         </>
     );
 }
-export default Admh;
+export default AdmCrm;

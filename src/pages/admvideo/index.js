@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import "./styles/adm.scss";
 import { motion } from "framer-motion"
 
-function Admproduct() {
+function AdmVideo() {
     return (
         <>
         <div className="mt100 container">
@@ -14,11 +14,11 @@ function Admproduct() {
                 <table class="table table-striped border">
                     <thead>
                         <tr>
-                            <th scope="col">名稱</th>
-                            <th scope="col">分類</th>
-                            <th scope="col">顯示</th>
-                            <th scope="col">價錢</th>
-                            <th scope="col">編輯</th>
+                            <th scope="col">主標</th>
+                            <th scope="col">副標</th>
+                            <th scope="col">連結'</th>
+                            <th scope="col">圖片</th>
+                            <th scope="col">功能</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,4 +66,4 @@ function Admproduct() {
         </>
     );
 }
-export default Admproduct;
+export default AdmVideo;
