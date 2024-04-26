@@ -28,12 +28,19 @@ import Audition from "./pages/audition";
 import Member from "./pages/member";
 import Memarea from "./pages/member/memarea";
 import Memberlogin from "./pages/member/memberlogin";
+//後端路由
 import AdmH from "./pages/admh";
 import AdmStaff from "./pages/admstaff";
 import AdmTeacher from "./pages/admteacher";
 import AdmMember from "./pages/admmember";
 import AdmQa from "./pages/admqa";
 import AdmCrm from "./pages/admcrm";
+import AdmProduct from "./pages/admproduct";
+import AdmDiscount from "./pages/admdiscount";
+import AdmPartner from "./pages/admpartner";
+import AdmMemberView from "./pages/admmemberview";
+import AdmReport from "./pages/admreport";
+import AdmLogin from "./pages/admlogin";
 
 function App() {
   return (
@@ -49,11 +56,17 @@ function App() {
                   <Routes>
                     <Route index element={<Navigate to="/adm" />} />
                     <Route path="admh" element={<AdmH />} />
+                    <Route path="admlogin" element={<AdmLogin />} />
                     <Route path="admstaff" element={<AdmStaff />} />
                     <Route path="admteacher" element={<AdmTeacher />} />
                     <Route path="admmember" element={<AdmMember />} />
                     <Route path="admcrm" element={<AdmCrm />} />
                     <Route path="admqa" element={<AdmQa />} />
+                    <Route path="admproduct" element={<AdmProduct />} />
+                    <Route path="admdiscount" element={<AdmDiscount />} />
+                    <Route path="admpartner" element={<AdmPartner />} />
+                    <Route path="admmemberview" element={<AdmMemberView />} />
+                    <Route path="admreport" element={<AdmReport />} />
                     {/* 在這裡添加其他管理員路由 */}
                   </Routes>
                 </Admlayout>

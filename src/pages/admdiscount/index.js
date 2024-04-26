@@ -3,45 +3,36 @@ import {Link} from "react-router-dom";
 import "./styles/adm.scss";
 import { motion } from "framer-motion"
 
-function Admh() {
+function AdmProduct() {
     return (
         <>
-        <div className="text-center mt-5">
-                <button className="btn btn-primary me-2">CPA</button>
-                <button className="btn btn-primary me-2">CMA</button>
-            </div>
+            {/* <!-- banner --> */}
             <div className="text-end mt-2">
-                <button className="btn btn-success me-2">搜尋</button>
                 <button className="btn btn-success me-2">新增</button>
             </div>
             <div className="mt-2">
                 <table className="table border">
                     <thead>
                         <tr>
-                            <th>編號</th>
-                            <th>題目</th>
-                            <th>問題</th>
-                            <th>解答</th>
-                            <th>老師</th>
-                            <th>發問次數</th>
+                            <th>名稱</th>
+                            <th>折扣</th>
                             <th>狀態</th>
-                            <th>發問日期</th>
-                            <th>編輯</th>
+                            <th>到期日</th>
+                            <th>備註</th>
+                            <th>修改</th>
                         </tr>    
                     </thead>
                     <tbody>
                         <tr>
-                            <th>qa_id</th>						
-                            <th>subject</th>
-                            <th>xtype</th>
-                            <th>reply</th>
-                            <th>teacher_id</th>
-                            <th>my_question</th>
-                            <th>reply_status</th>
-                            <th>create_date</th>
+                            <th>name</th>				
+                            <th>discount</th>
+                            <th>status</th>
+                            <th>due_date</th>
+                            <th>memo</th>
                             <th>
                                 <div>
                                     <button className="btn btn-primary me-2">編輯</button>
+                                    <button className="btn btn-secondary me-2">停用</button>
                                     <button className="btn btn-danger">刪除</button>
                                 </div>
                             </th>
@@ -53,4 +44,4 @@ function Admh() {
         </>
     );
 }
-export default Admh;
+export default AdmProduct;

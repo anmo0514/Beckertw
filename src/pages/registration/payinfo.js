@@ -2,17 +2,9 @@ import { useState, useEffect } from "react";
 import "./styles/payinfo.scss";
 import { motion } from "framer-motion"
 import Address from "./component/address";
-import { useAuth } from "../../pages/login/AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2';
 
 
 function Payinfo() {
-
-    const { setAuth, ...auth } = useAuth()
-    console.log(auth);
-    console.log("auth");
-    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         name: "",
@@ -141,16 +133,6 @@ function Payinfo() {
             
         }
     };
-    // 如果已經登錄，可以根據需要進行相應的處理
-    if (!auth.authorized) {
-        Swal.fire({
-            imageUrl: '/member_img/logo.svg',
-            confirmButtonColor: '#224040',
-            color:"#224040",
-            text: "尚未登入會員",
-        })
-        navigate("../member/memberlogin");
-    }
 
     return (
         <>

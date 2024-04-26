@@ -15,6 +15,7 @@ function Admh() {
                         Thank you for your contribution<br />
                         to Direct Line<br />
                     </div>
+                    
                 </div>
                 <motion.div
                         initial={{ opacity: 0, x:100 }}

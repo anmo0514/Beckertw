@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import "./styles/plan.scss";
+import { useAuth } from "../../pages/login/AuthProvider";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 function Plan() {
+    
+    const { authorized } = useAuth();
+    const navigate = useNavigate();
+
     const initialCards = [
         { 
             id: "far-left", 
@@ -113,6 +118,21 @@ function Plan() {
         },50)
     };
 
+    const handleNextStepClick = () => {
+        // 檢查用戶是否已經登錄
+        if (!authorized) {
+            // 如果未登錄，彈出警告視窗
+            Swal.fire({
+                icon: "warning",
+                color: "#224040",
+                text: "尚未登入會員",
+            });
+            navigate("../member/memberlogin");
+        } else {
+            // 如果已登錄，重定向到下一步頁面
+            navigate("../registration/payinfo");
+        }
+    };
     return (
         <>
             <div className="beckertitlename mt100">請確認購買方案</div>
@@ -133,7 +153,7 @@ function Plan() {
             </div>
             <div className="container">
                 <div className="nextstep">
-                    <Link to="../registration/payinfo" className="btn btn-primary mb-5">下一步</Link>
+                    <button className="btn btn-primary mb-5" onClick={handleNextStepClick}>下一步</button>
                 </div>
             </div>
             

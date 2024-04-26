@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import "./styles/adm.scss";
 import { motion } from "framer-motion"
 
-function Admh() {
+function AdmWebMgr() {
     return (
         <>
             {/* <!-- banner --> */}
@@ -15,12 +15,6 @@ function Admh() {
                         Thank you for your contribution<br />
                         to Direct Line<br />
                     </div>
-                    <div>
-                        <Link to={"/adm/admnews"} className="btn btn-primary" >最新消息</Link>
-                        <Link to={"/adm/admvedio"} className="btn btn-primary" >影片專區</Link>
-                        <Link to={"/adm/admshare"} className="btn btn-primary" >分享管理</Link>
-                    </div>
-                    
                 </div>
                 <motion.div
                         initial={{ opacity: 0, x:100 }}
@@ -37,4 +31,4 @@ function Admh() {
         </>
     );
 }
-export default Admh;
+export default AdmWebMgr;

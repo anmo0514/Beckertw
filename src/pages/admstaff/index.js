@@ -6,27 +6,37 @@ import { motion } from "framer-motion"
 function Admh() {
     return (
         <>
-            {/* <!-- banner --> */}
-            <div className="beckerbanner">
-                <div className="beckerbannerblock col-3">
-                    <div className="wlecomsign">
-                        <div className="lgtext">Welcome</div>
-                        <div className="beclertitle">張兆軒</div>
-                        Thank you for your contribution<br />
-                        to Direct Line<br />
-                    </div>
-                </div>
-                <motion.div
-                        initial={{ opacity: 0, x:100 }}
-                        whileInView={{ opacity: 1, x:0 }}
-                        transition={{
-                        delay: 0.4,
-                        default: { ease: "linear" },
-                    }}>
-                    <div className="col-9">
-                        <img src="/admImg/welcomepic.jpg" alt=""/>
-                    </div>
-                </motion.div>
+            <div className="text-end mt-2">
+                <button className="btn btn-success me-2">新增</button>
+            </div>
+            <div className="mt-2">
+                <table className="table border">
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>帳號</th>
+                            <th>狀態</th>
+                            <th>職稱</th>
+                            <th>修改</th>
+                        </tr>    
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>name</th>
+                            <th>account</th>
+                            <th>--status--</th>
+                            <th>-----</th>
+                            <th>
+                                <div>
+                                    <button className="btn btn-primary me-2">編輯</button>
+                                    <button className="btn btn-secondary me-2">停用</button>
+                                    <button className="btn btn-danger">刪除</button>
+                                </div>
+                            </th>
+                        </tr>
+                    </tbody>
+                    
+                </table>
             </div>
         </>
     );

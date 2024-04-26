@@ -2,6 +2,16 @@ import { useState, useEffect } from "react";
 import {Link, NavLink} from "react-router-dom";
 import "../styles/navbar.scss";
 
+const userData = localStorage.getItem('auth');
+let decodeUserData;
+if(userData) {
+    try{
+        decodeUserData = JSON.parse(userData);
+    } catch (err){
+
+    }
+}
+
 export default function Navbar() {
     return (
         <>
@@ -28,12 +38,10 @@ export default function Navbar() {
                                 // style="--bs-scroll-height: 500px"
                             >
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" aria-current="page" to="./home"
-                                        >首頁管理
-                                    </NavLink>
+                                    <NavLink className="nav-link" aria-current="page" to="./home">網站管理</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="./admstaff">人員管理</NavLink>
+                                    <NavLink className="nav-link" to="./admstaff">員工管理</NavLink>
                                 </li>
                                 <li class="nav-item">
                                     <NavLink className="nav-link" to="./admteacher">老師管理</NavLink>
@@ -45,7 +53,22 @@ export default function Navbar() {
                                     <Link className="nav-link" to="./admqa">Q&A管理</Link>
                                 </li>
                                 <li className="nav-item">
+                                    <Link className="nav-link" to="./admproduct">產品管理</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="./admdiscount">優惠管理</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="./admpartner">合作管理</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="./admmemberview">學員總表</Link>
+                                </li>
+                                <li className="nav-item">
                                     <Link className="nav-link" to="./admcrm">客戶關係管理</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="./admreport">業績總表</Link>
                                 </li>
                                 
                                 <Link to="/member">
