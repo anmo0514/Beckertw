@@ -15,7 +15,6 @@ function Memarea() {
 
     
     const { mem_id } = useAuth(); // 使用 useAuth 鉤子來獲取 auth 的 mem_id
-    console.log(mem_id);
 
     useEffect(() => {
         const fetchMemAreaData = async () => {
@@ -38,7 +37,9 @@ function Memarea() {
     
         fetchMemAreaData();
     }, [mem_id]);
+    console.log(memBackData)
 
+    
     return (
         <>
             {/* banner */}
@@ -53,9 +54,9 @@ function Memarea() {
             </div>
             {/* <!-- USCPA 方案線上報名表 --> */}
             <div className="container mb100 mt100">
-                <div className="beckertitlename mt100 mb-5">會員基本資料{memBackData.chinese_name}</div>
+                <div className="beckertitlename mt100 mb-5">會員基本資料</div>
                 <div className="card w-75 p-5 m-auto">
-                    <div className="card-body">
+                    {/* <div className="card-body">
                     <div className="form-group mb-4">
                             <label htmlFor="name" className="mb-2">中文全名</label>
                             <input type="text" className={`form-control`} id="name" name="name" value={memBackData.chinese_name}/>
@@ -200,7 +201,36 @@ function Memarea() {
                                 <label className="custom-control-label m-2" >捷運廣告</label>
                                 
                             </div>
-                    </div>
+                    </div> */}
+                    {memBackData.chinese_name}
+                    <input
+                        type="tel"
+                        className="form-control"
+                        id="phone"
+                        name="phone"
+                        value={memBackData.phone_num}
+                    />
+                    <input
+                        type="email"
+                        className="form-control"
+                        id="email"
+                        name="email"
+                        value={memBackData.email}
+                    />
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="idIdentity"
+                        name="idIdentity"
+                        value={memBackData.id_num}
+                    />
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="school"
+                        name="school"
+                        value={memBackData.school}
+                    />
                 </div>
             </div>
         </>

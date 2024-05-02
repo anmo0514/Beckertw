@@ -50,72 +50,72 @@ function App() {
     <>
       <BrowserRouter>
         <AuthProvider>
-          <Routes>
-            {/* 在所有以 "/adm" 開頭的路由使用 Admlayout */}
-            <Route
-              path="/adm/*"
-              element={
-                <Admlayout>
-                  <Routes>
-                    <Route index element={<Navigate to="/adm" />} />
-                    <Route path="admh" element={<AdmH />} />
-                    <Route path="admlogin" element={<AdmLogin />} />
-                    <Route path="admstaff" element={<AdmStaff />} />
-                    <Route path="admteacher" element={<AdmTeacher />} />
-                    <Route path="admmember" element={<AdmMember />} />
-                    <Route path="admcrm" element={<AdmCrm />} />
-                    <Route path="admqa" element={<AdmQa />} />
-                    <Route path="admproduct" element={<AdmProduct />} />
-                    <Route path="admdiscount" element={<AdmDiscount />} />
-                    <Route path="admpartner" element={<AdmPartner />} />
-                    <Route path="admmemberview" element={<AdmMemberView />} />
-                    <Route path="admreport" element={<AdmReport />} />
-                    <Route path="admnews" element={<AdmNews />} />
-                    <Route path="admvideo" element={<AdmVideo />} />
-                    <Route path="admShare" element={<AdmShare />} />
-                    {/* 在這裡添加其他管理員路由 */}
-                  </Routes>
-                </Admlayout>
-              }
-            />
-            {/* 在所有其他路由使用 Layout */}
-            <Route
-              path="/*"
-              element={
-                <Layout>
-                  <Routes>
-                    <Route index element={<Home />} />
-                    <Route path="/home/newdetail/:new_id" element={<Newdetail />}/>
-                    <Route path="/about/*">
-                      <Route index element={<Navigate to="/about/origin" />} />
-                      <Route path="origin" element={<Origin />} />
-                      <Route path="glory" element={<Glory />} />
-                      <Route path="duty" element={<Duty />} />
-                    </Route>
-                    <Route path="/becker" element={<Becker />} />
-                    <Route path="/cpa" element={<Cpa />}/>
-                    <Route path="/cma" element={<Cma />} />
-                    <Route path="/registration" element={<Registration />} />
-                    <Route path="/registration/plan" element={<Plan />} />
-                    <Route path="/registration/payinfo" element={<Payinfo />} />
-                    <Route path="/registration/pay" element={<Pay />} />
-                    <Route path="/registration/success" element={<Success />} />
-                    <Route path="/service" element={<Service />} />
-                    <Route path="/share" element={<Share />} />
-                    <Route path="/share/detail/:artId" element={<Detail />} />
-                    <Route path="/video" element={<Video />} />
-                    <Route path="/faq" element={<Faq />} />
-                    <Route path="/audition" element={<Audition />} />
-                    <Route path="/consult" element={<Consult />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/member" element={<Member />} />
-                    <Route path="/member/memarea" element={<Memarea />} />
-                    <Route path="/member/memberlogin" element={<Memberlogin />} />
-                  </Routes>
-                </Layout>
-              }
-            />
-          </Routes>
+            <Routes>
+              {/* 在所有以 "/adm" 開頭的路由使用 Admlayout */}
+              <Route
+                path="/adm/*"
+                element={
+                  <Admlayout>
+                    <Routes>
+                      <Route index element={<Navigate to="/adm" />} />
+                      <Route path="admh" element={<AdmH />} />
+                      <Route path="admlogin" element={<AdmLogin />} />
+                      <Route path="admstaff" element={<AdmStaff />} />
+                      <Route path="admteacher" element={<AdmTeacher />} />
+                      <Route path="admmember" element={<AdmMember />} />
+                      <Route path="admcrm" element={<AdmCrm />} />
+                      <Route path="admqa" element={<AdmQa />} />
+                      <Route path="admproduct" element={<AdmProduct />} />
+                      <Route path="admdiscount" element={<AdmDiscount />} />
+                      <Route path="admpartner" element={<AdmPartner />} />
+                      <Route path="admmemberview" element={<AdmMemberView />} />
+                      <Route path="admreport" element={<AdmReport />} />
+                      <Route path="admnews" element={<AdmNews />} />
+                      <Route path="admvideo" element={<AdmVideo />} />
+                      <Route path="admShare" element={<AdmShare />} />
+                      {/* 在這裡添加其他管理員路由 */}
+                    </Routes>
+                  </Admlayout>
+                }
+              />
+              {/* 在所有其他路由使用 Layout */}
+              <Route
+                path="/*"
+                element={
+                  <Layout>
+                    <Routes>
+                      <Route index element={<Home />} />
+                      <Route path="/home/newdetail/:new_id" element={<Newdetail />}/>
+                      <Route path="/about/*">
+                        <Route index element={<Navigate to="/about/origin" />} />
+                        <Route path="origin" element={<Origin />} />
+                        <Route path="glory" element={<Glory />} />
+                        <Route path="duty" element={<Duty />} />
+                      </Route>
+                      <Route path="/becker" element={<Becker />} />
+                      <Route path="/cpa" element={<Cpa />}/>
+                      <Route path="/cma" element={<Cma />} />
+                      <Route path="/registration" element={<Registration />} />
+                      <Route path="/registration/plan" element={<Plan />} />
+                      <Route path="/registration/payinfo" element={<Payinfo />} />
+                      <Route path="/registration/pay" element={<Pay />} />
+                      <Route path="/registration/success" element={<Success />} />
+                      <Route path="/service" element={<Service />} />
+                      <Route path="/share" element={<Share />} />
+                      <Route path="/share/detail/:artId" element={<Detail />} />
+                      <Route path="/video" element={<Video />} />
+                      <Route path="/faq" element={<Faq />} />
+                      <Route path="/audition" element={<Audition />} />
+                      <Route path="/consult" element={<Consult />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="/member" element={<Member />} />
+                      <Route path="/member/memarea" element={<Memarea />} />
+                      <Route path="/member/memberlogin" element={<Memberlogin />} />
+                    </Routes>
+                  </Layout>
+                }
+              />
+            </Routes>
         </AuthProvider>  
       </BrowserRouter>
     </>

@@ -1,24 +1,35 @@
 import React,{ useState } from 'react';
-import  { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../login/AuthProvider";
 import axios from "axios";
 
 const Form = (props) => {
     const [account, setAccount] = useState('');
     const [password, setPassword] = useState('');
+    const { setAuth } = useAuth();
+    console.log(setAuth);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let result;
         try {
-            result = await axios.post("http://localhost:3700/login/employee", document.getElementById("form"));
-            if(result.data.status === 200) {
-                localStorage.setItem('auth', result.data);
-                return window.location.href="/adm/home";
-            }
-            else {
-                document.getElementById("error").innerText = "帳號密碼錯誤";
-                return false;
-            }
+            await axios.post("http://localhost:3700/login/employee", document.getElementById("form")).then(
+                (r) => {
+                    if(r.data.status === 200) {
+                        localStorage.setItem('authAdm', JSON.stringify(r.data.data));
+                        setAuth({
+                            ...r.data.data,
+                            authorized: true,
+                        });                        
+                        navigate("/adm/admh");
+                    }
+                    else {
+                        document.getElementById("error").innerText = "帳號密碼錯誤";
+                        return false;
+                    }
+                }
+            );
+            
         } catch (err) {
             document.getElementById("error").innerText = err;
         }

@@ -3,39 +3,57 @@ import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext({
     authorized: false,
-    mem_id: 0,
+    id: 0,
     account: "",
     token: "",
+    name: "",
+    type: "",
 });
 
 export const AuthProvider = ({ children }) => {
+    // 初始狀態
     const unAuthState = {
         authorized: false,
-        mem_id: 0,
+        id: 0,
         account: "",
         token: "",
+        name: "",
+        type: "",
     };
 
-    // 先查看 localStorage 的資料是否表示已登入
-    const localAuthStr = localStorage.getItem("auth");
-    let localAuth = { ...unAuthState };
+    // 根據路徑選擇存儲鍵和初始狀態結構
+    const isAdminPath = window.location.pathname.startsWith('/adm');
+    const localStorageKey = isAdminPath ? 'authAdm' : 'auth';
+    const initialAuthState = {
+        ...unAuthState,
+        ...(isAdminPath ? { name: "", type: "" } : { mem_id: 0 }),
+    };
+
+    // 從 localStorage 中加載身份驗證狀態
+    const localAuthStr = localStorage.getItem(localStorageKey);
+    let localAuth = { ...initialAuthState };
     if (localAuthStr) {
         try {
             localAuth = JSON.parse(localAuthStr);
             if (localAuth.account && localAuth.token) {
-                localAuth = { ...localAuth, authorized: true };
+                localAuth.authorized = true;
             }
-        } catch (ex) {}
+        } catch (ex) {
+            console.error('Error parsing auth data:', ex);
+        }
     }
 
     const [auth, setAuth] = useState(localAuth);
-
     const navigate = useNavigate();
 
+    // 登出函數
     const logout = () => {
-        localStorage.removeItem("auth");
-        setAuth({ authorized: false, mem_id: 0, token: "" });
-        navigate("/");
+        localStorage.removeItem(localStorageKey);
+        setAuth({ ...initialAuthState });
+        
+        // 根據路徑選擇重定向路徑
+        const redirectPath = isAdminPath ? '/adm/login' : '/';
+        navigate(redirectPath);
     };
 
     return (
@@ -50,4 +68,5 @@ export const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     );
 };
+
 export const useAuth = () => useContext(AuthContext);
