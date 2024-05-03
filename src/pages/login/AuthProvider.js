@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
         setAuth({ ...initialAuthState });
         
         // 根據路徑選擇重定向路徑
-        const redirectPath = isAdminPath ? '/adm/login' : '/';
+        const redirectPath = isAdminPath ? '/adm/admlogin' : '/';
         navigate(redirectPath);
     };
 

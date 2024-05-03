@@ -5,8 +5,8 @@ import "../styles/navbar.scss";
 
 export default function Navbar() {
     
-    const { authorized, logout } = useAuth();
-
+    const { authorized, name, logout } = useAuth();
+    
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor:'#152046'}}>
@@ -76,13 +76,17 @@ export default function Navbar() {
                                         </div>
                                     )}
                                     {authorized ? (
-                                        <div className="">
+                                        <div className="text-white">
                                                 <Link to="/member" className="text-white">
-                                                <i className="fa-solid fa-user"/>
+                                                <i className="fa-solid fa-user "/>
                                                 </Link>
+                                                <div className="memname">
+                                                    {name}
+                                                </div>
                                                 <div className="text-white logouttext" onClick={() => {logout(); }}>
                                                 登出
-                                            </div>
+                                                </div>
+                                                
                                         </div>
                                     ) : (
                                         null
