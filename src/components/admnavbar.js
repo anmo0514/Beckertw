@@ -69,7 +69,9 @@ export default function AdmNavbar() {
                             <li className="nav-item navicon">
                             {authorized ? (
                                 <div className="text-white">
-                                    {name}
+                                    <div className="memname">
+                                        {name}
+                                    </div>
                                     <div className="text-white logouttext" onClick={() => {logout(); }}>
                                         登出
                                     </div>
