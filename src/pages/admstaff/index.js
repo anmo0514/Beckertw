@@ -7,12 +7,20 @@ import SwitchBox from "../../components/switchBox";
 import {switchHelper} from "../../modules/helpers";
 
 function Admstaff() {
+    const { authorized } = useAuth();
+    const navigate = useNavigate();
+    useEffect(() => {
+        // 如果未登入，則重定向到後台登入頁面
+        if (!authorized) {
+            navigate('/adm/admlogin');
+        }
+    }, [authorized, navigate]);
+
     const [stafflist, setStafflist] = useState([]);
     const [editingStaff, setEditingStaff] = useState(null);
     const [updatedData, setUpdatedData] = useState({});
     const [newStaff, setNewStaff] = useState(null); // 用於保存新行的數據
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
     const { token } = useAuth();
     //Read 將後端staff所有員工資訊導入
     const fetchData = async () => {

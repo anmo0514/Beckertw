@@ -7,12 +7,20 @@ import SwitchBox from "../../components/switchBox";
 import {switchHelper, dateHelper} from "../../modules/helpers";
 
 function AdmPartner() {
+    const { authorized } = useAuth();
+    const navigate = useNavigate();
+    useEffect(() => {
+        // 如果未登入，則重定向到後台登入頁面
+        if (!authorized) {
+            navigate('/adm/admlogin');
+        }
+    }, [authorized, navigate]);
+
     const [partnerlist, setPartnerlist] = useState([]);
     const [editingPartner, setEditingPartner] = useState(null);
     const [updatedData, setUpdatedData] = useState({});
     const [newPartner, setNewPartner] = useState(null); // 用於保存新行的數據
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
     const { token } = useAuth();
     //Read 將後端partner所有合作夥伴資訊導入
     const fetchData = async () => {

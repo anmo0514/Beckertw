@@ -8,12 +8,21 @@ import {switchHelper, dateHelper} from "../../modules/helpers";
 
 
 function AdmMember() {
+
+    const { authorized } = useAuth();
+    const navigate = useNavigate();
+    useEffect(() => {
+        // 如果未登入，則重定向到後台登入頁面
+        if (!authorized) {
+            navigate('/adm/admlogin');
+        }
+    }, [authorized, navigate]);
+
     const [memberlist, setMemberlist] = useState([]);
     const [editingMember, setEditingMember] = useState(null);
     const [updatedData, setUpdatedData] = useState({});
     const [newMember, setNewMember] = useState(null); // 用於保存新行的數據
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
     const { token } = useAuth();
     const pageSize = 50;
     const memberStatus = ['請選擇', '在職者', "在學生", "全職考生", "待業中"];

@@ -2,8 +2,19 @@ import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import "./styles/adm.scss";
 import { motion } from "framer-motion"
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../login/AuthProvider";
 
 function AdmReport() {
+    const { authorized } = useAuth();
+    const navigate = useNavigate();
+    useEffect(() => {
+        // 如果未登入，則重定向到後台登入頁面
+        if (!authorized) {
+            navigate('/adm/admlogin');
+        }
+    }, [authorized, navigate]);
+    
     return (
         <>
             {/* <!-- banner --> */}
