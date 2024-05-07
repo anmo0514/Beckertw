@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../login/AuthProvider";
+import { admin } from '../../components/apipath';
+import SwitchBox from "../../components/switchBox";
+import {switchHelper} from "../../modules/helpers";
 
 function Admstaff() {
     const [stafflist, setStafflist] = useState([]);
@@ -9,12 +13,12 @@ function Admstaff() {
     const [newStaff, setNewStaff] = useState(null); // 用於保存新行的數據
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
-
+    const { token } = useAuth();
     //Read 將後端staff所有員工資訊導入
     const fetchData = async () => {
         try {
             setLoading(true); // 開始加載
-            const response = await axios.get('http://localhost:3700/admstaff/stafflist');
+            const response = await axios.get(`${admin}`, {headers:{token: token}});
             setStafflist(response.data);
             setLoading(false); // 完成加載
         } catch (error) {
@@ -34,16 +38,25 @@ function Admstaff() {
         setUpdatedData(staff);
     };
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setUpdatedData({
-            ...updatedData,
-            [name]: value
-        });
+        const { name, value, checked, type } = e.target;
+        if (['checkbox'].includes(type)){
+            setUpdatedData({
+                admin_id: editingStaff.admin_id,
+                ...updatedData,
+                [name]: switchHelper(checked),
+            });
+        } else {
+            setUpdatedData({
+                admin_id: editingStaff.admin_id,
+                ...updatedData,
+                [name]: value,
+            });
+        }
     };
     //Update 將資訊依照admin_id回傳給後端
     const saveChanges = async () => {
         try {
-            await axios.put(`http://localhost:3700/admstaff/updatestaff/${editingStaff.admin_id}`, updatedData);
+            await axios.put(`${admin}`, updatedData, {headers:{token: token}});
             // 更新前端的 stafflist 狀態
             const updatedStaffList = stafflist.map(staff => {
                 if (staff.admin_id === editingStaff.admin_id) {
@@ -69,32 +82,44 @@ function Admstaff() {
         });
     };
 
+
     // Create 處理新行輸入的變化
     const handleNewInputChange = (e) => {
-        const { name, value } = e.target;
-        setNewStaff({
-            ...newStaff,
-            [name]: value,
-        });
+        const { name, value, checked, type } = e.target;
+        if (['checkbox'].includes(type)){
+            setNewStaff({
+                ...newStaff,
+                [name]: switchHelper(checked),
+            });
+        } else {
+            setNewStaff({
+                ...newStaff,
+                [name]: value,
+            });
+        }
     };
+
 
     // Create 保存新行
     const handleSaveNew = async () => {
         try {
             // 發送 POST 請求將新員工數據保存到後端
-            const response = await axios.post('http://localhost:3700/admstaff/createstaff', newStaff);
-
-            // 新增成功，顯示成功通知
-            alert('新增成功！');
-
-            // 將新的員工數據添加到 stafflist 狀態中
-            setStafflist([...stafflist, response.data]);
-
-            // 重置 newStaff 狀態
-            setNewStaff(null);
-
-            // 跳轉到另一個頁面（例如員工列表頁）
-            navigate('/adm'); // 請根據您的路由結構指定正確的路徑
+            const response = await axios.post(`${admin}`, newStaff, {headers:{token: token}});
+            if (response.data.status === 200){
+                // 新增成功，顯示成功通知
+                alert('新增成功！');
+                // 將新的員工數據添加到 stafflist 狀態中
+                let newData = newStaff;
+                newData.admin_id = response.data.data[0].insertId;
+                setStafflist([...stafflist, newData]);
+                // 重置 newStaff 狀態
+                setNewStaff(null);
+                // 跳轉到另一個頁面（例如員工列表頁）
+                //navigate('/adm/admstaff'); // 請根據您的路由結構指定正確的路徑
+            } else {
+                console.error('Error saving new staff:', response.data.msg);
+            }
+            
         } catch (error) {
             console.error('Error saving new staff:', error);
         }
@@ -107,7 +132,7 @@ function Admstaff() {
                     <button className="btn btn-success me-2" onClick={handleAddNew}>新增</button>
                 </div>
                 <div className="mt-2">
-                    <table className="table border">
+                    <table className="table border table-responsive table-striped">
                         <thead>
                             <tr>
                                 <th>姓名</th>
@@ -124,7 +149,7 @@ function Admstaff() {
                                 <tr>
                                     <td>
                                         <input
-                                            className="border border-primary"
+                                            className="border border-primary form-control form-control-sm"
                                             type="text"
                                             name="name"
                                             value={newStaff.name}
@@ -134,7 +159,7 @@ function Admstaff() {
                                     </td>
                                     <td>
                                         <input
-                                            className="border border-primary"
+                                            className="border border-primary form-control form-control-sm"
                                             type="text"
                                             name="account"
                                             value={newStaff.account}
@@ -144,7 +169,7 @@ function Admstaff() {
                                     </td>
                                     <td>
                                         <input
-                                            className="border border-primary"
+                                            className="border border-primary form-control form-control-sm"
                                             type="password"
                                             name="password"
                                             value={newStaff.password}
@@ -154,7 +179,7 @@ function Admstaff() {
                                     </td>
                                     <td>
                                         <input
-                                            className="border border-primary"
+                                            className="border border-primary form-control form-control-sm"
                                             type="text"
                                             name="position"
                                             value={newStaff.position}
@@ -163,27 +188,18 @@ function Admstaff() {
                                         />
                                     </td>
                                     <td>
-                                        <select
-                                            className="border border-primary"
-                                            name="status"
-                                            value={newStaff.status}
-                                            onChange={handleNewInputChange}
-                                            required // 必填
-                                        >
-                                            <option value="0">停用</option>
-                                            <option value="1">啟用</option>
-                                        </select>
+                                        {SwitchBox('status', newStaff.status, handleNewInputChange)}
                                     </td>
                                     <td>
                                         {/* 保存和取消按鈕 */}
                                         <button
-                                            className="btn btn-primary me-2"
+                                            className="btn btn-primary m-1"
                                             onClick={handleSaveNew}
                                         >
                                             保存
                                         </button>
                                         <button
-                                            className="btn btn-secondary"
+                                            className="btn btn-secondary m-1"
                                             onClick={() => setNewStaff(null)}
                                         >
                                             取消
@@ -196,7 +212,7 @@ function Admstaff() {
                                     <td>
                                         {editingStaff && editingStaff.admin_id === staff.admin_id ? (
                                             <input
-                                                className="border border-primary"
+                                                className="border border-primary form-control form-control-sm"
                                                 type="text"
                                                 name="name"
                                                 value={updatedData.name}
@@ -209,11 +225,13 @@ function Admstaff() {
                                     <td>
                                         {editingStaff && editingStaff.admin_id === staff.admin_id ? (
                                             <input
-                                                className="border border-primary"
+                                                className="border border-primary form-control form-control-sm"
                                                 type="text"
                                                 name="account"
                                                 value={updatedData.account}
                                                 onChange={handleInputChange}
+                                                readOnly="readonly"
+                                                disabled="disabled"
                                             />
                                         ) : (
                                             staff.account
@@ -222,7 +240,7 @@ function Admstaff() {
                                     <td>
                                         {editingStaff && editingStaff.admin_id === staff.admin_id ? (
                                             <input
-                                                className="border border-primary"
+                                                className="border border-primary form-control form-control-sm"
                                                 type="password"
                                                 name="password"
                                                 value={updatedData.password}
@@ -235,7 +253,7 @@ function Admstaff() {
                                     <td>
                                         {editingStaff && editingStaff.admin_id === staff.admin_id ? (
                                             <input
-                                                className="border border-primary"
+                                                className="border border-primary form-control form-control-sm"
                                                 type="text"
                                                 name="position"
                                                 value={updatedData.position}
@@ -247,29 +265,22 @@ function Admstaff() {
                                     </td>
                                     <td>
                                         {editingStaff && editingStaff.admin_id === staff.admin_id ? (
-                                            <select
-                                                name="status"
-                                                value={updatedData.status}
-                                                onChange={handleInputChange}
-                                            >
-                                                <option value="0">停用</option>
-                                                <option value="1">啟用</option>
-                                            </select>
+                                            SwitchBox('status', updatedData.status, handleInputChange)
                                         ) : (
-                                            staff.status === "0" ? "停用" : "啟用"
+                                            staff.status === 0 ? "停用" : "啟用"
                                         )}
                                     </td>
                                     <td>
                                         {editingStaff && editingStaff.admin_id === staff.admin_id ? (
                                             <>
                                                 <button
-                                                    className="btn btn-primary me-2"
+                                                    className="btn btn-primary m-1"
                                                     onClick={saveChanges}
                                                 >
                                                     保存
                                                 </button>
                                                 <button
-                                                    className="btn btn-secondary"
+                                                    className="btn btn-secondary m-1"
                                                     onClick={() => setEditingStaff(null)}
                                                 >
                                                     取消
@@ -277,7 +288,7 @@ function Admstaff() {
                                             </>
                                         ) : (
                                             <button
-                                                className="btn btn-primary me-2"
+                                                className="btn btn-primary m-1"
                                                 onClick={() => startEditing(staff)}
                                             >
                                                 編輯
@@ -291,7 +302,7 @@ function Admstaff() {
                 </div>
             </div>
         </>
-    );
+    ); 
 }
 
 export default Admstaff;

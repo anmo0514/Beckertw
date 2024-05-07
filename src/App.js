@@ -3,7 +3,7 @@ import Layout from "./components/layout.js";
 import Admlayout from "./components/admlayout.js";
 import { AuthProvider } from "./pages/login/AuthProvider";
 
-// import 路由...
+// 前台路由
 import Home from "./pages/home";
 import Newdetail from "./pages/home/newdetail";
 import Origin from "./pages/about/origin";
@@ -24,11 +24,13 @@ import Video from "./pages/video";
 import Faq from "./pages/faq";
 import Contact from "./pages/contact";
 import Consult from "./pages/consult";
+import Form from "./pages/consult/form";
 import Audition from "./pages/audition";
 import Member from "./pages/member";
 import Memarea from "./pages/member/memarea";
 import Memberlogin from "./pages/member/memberlogin";
-//後端路由
+
+//後台路由
 import AdmH from "./pages/admh";
 import AdmStaff from "./pages/admstaff";
 import AdmTeacher from "./pages/admteacher";
@@ -107,6 +109,7 @@ function App() {
                       <Route path="/faq" element={<Faq />} />
                       <Route path="/audition" element={<Audition />} />
                       <Route path="/consult" element={<Consult />} />
+                      <Route path="/consult/form" element={<Form />} />
                       <Route path="/contact" element={<Contact />} />
                       <Route path="/member" element={<Member />} />
                       <Route path="/member/memarea" element={<Memarea />} />

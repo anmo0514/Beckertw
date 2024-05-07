@@ -19,14 +19,13 @@ function Memarea() {
     useEffect(() => {
         const fetchMemAreaData = async () => {
             try {
-                // 檢查是否存在 mem_id
                 if (mem_id) {
-                    // 如果存在 mem_id，發送請求
                     const response = await axios.get(`http://localhost:3700/member/memareaData/${mem_id}`);
-                    setMemBackData(response.data);
-                    console.log(response.data); // 輸出後端返回的數據
-                    const jsonData = JSON.stringify(response.data);
-                    console.log(jsonData);
+                    console.log("Response data:", response.data);
+                    // 從數組中提取會員的基本資料對象
+                    const memberData = response.data[0];
+                    setMemBackData(memberData);
+                    console.log("memBackData set to:", memberData);
                 } else {
                     console.log("mem_id is not available");
                 }
@@ -37,9 +36,25 @@ function Memarea() {
     
         fetchMemAreaData();
     }, [mem_id]);
-    console.log(memBackData)
 
-    
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setMemBackData({
+            ...memBackData,
+            [name]: value,
+        });
+    };
+
+    const saveChanges = async () => {
+        try {
+            await axios.put(`http://localhost:3700/member/update/${mem_id}`, memBackData);
+            console.log("Changes saved successfully");
+        } catch (error) {
+            console.error("Error saving changes:", error);
+        }
+    };
+
+    console.log(memBackData.chinese_name)
     return (
         <>
             {/* banner */}
@@ -56,7 +71,7 @@ function Memarea() {
             <div className="container mb100 mt100">
                 <div className="beckertitlename mt100 mb-5">會員基本資料</div>
                 <div className="card w-75 p-5 m-auto">
-                    {/* <div className="card-body">
+                    <div className="card-body">
                     <div className="form-group mb-4">
                             <label htmlFor="name" className="mb-2">中文全名</label>
                             <input type="text" className={`form-control`} id="name" name="name" value={memBackData.chinese_name}/>
@@ -65,10 +80,10 @@ function Memarea() {
                                 <label  className="mb-2">英文拼音全名</label><br/>
                                 <div className="row">
                                     <div className="col">
-                                    <input type="text" className="form-control" placeholder="First name"/>
+                                    <input type="text" className="form-control" placeholder="First name" value={memBackData.first_name}/>
                                     </div>
                                     <div className="col">
-                                    <input type="text" className="form-control" placeholder="Last name"/>
+                                    <input type="text" className="form-control" placeholder="Last name" value={memBackData.last_name}/>
                                     </div>
                                 </div>
                                 <small id="enameHelp" className="form-text text-muted">同護照上顯示之英文名，例：Da-Ming, Wang</small>
@@ -201,36 +216,7 @@ function Memarea() {
                                 <label className="custom-control-label m-2" >捷運廣告</label>
                                 
                             </div>
-                    </div> */}
-                    {memBackData.chinese_name}
-                    <input
-                        type="tel"
-                        className="form-control"
-                        id="phone"
-                        name="phone"
-                        value={memBackData.phone_num}
-                    />
-                    <input
-                        type="email"
-                        className="form-control"
-                        id="email"
-                        name="email"
-                        value={memBackData.email}
-                    />
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="idIdentity"
-                        name="idIdentity"
-                        value={memBackData.id_num}
-                    />
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="school"
-                        name="school"
-                        value={memBackData.school}
-                    />
+                    </div>
                 </div>
             </div>
         </>

@@ -7,7 +7,6 @@ const Form = (props) => {
     const [account, setAccount] = useState('');
     const [password, setPassword] = useState('');
     const { setAuth } = useAuth();
-    console.log(setAuth);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -20,7 +19,7 @@ const Form = (props) => {
                         setAuth({
                             ...r.data.data,
                             authorized: true,
-                        });                        
+                        });                   
                         navigate("/adm/admh");
                     }
                     else {
