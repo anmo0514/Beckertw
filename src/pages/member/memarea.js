@@ -22,7 +22,6 @@ function Memarea() {
                 if (mem_id) {
                     const response = await axios.get(`http://localhost:3700/member/memareaData/${mem_id}`);
                     console.log("Response data:", response.data);
-                    // 從數組中提取會員的基本資料對象
                     const memberData = response.data[0];
                     setMemBackData(memberData);
                     console.log("memBackData set to:", memberData);
@@ -31,28 +30,29 @@ function Memarea() {
                 }
             } catch (error) {
                 console.error("Error fetching member area data:", error);
+                console.error("Error details:", error.response ? error.response.data : error.message);
             }
         };
     
         fetchMemAreaData();
     }, [mem_id]);
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setMemBackData({
-            ...memBackData,
-            [name]: value,
-        });
-    };
+    // const handleInputChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setMemBackData({
+    //         ...memBackData,
+    //         [name]: value,
+    //     });
+    // };
 
-    const saveChanges = async () => {
-        try {
-            await axios.put(`http://localhost:3700/member/update/${mem_id}`, memBackData);
-            console.log("Changes saved successfully");
-        } catch (error) {
-            console.error("Error saving changes:", error);
-        }
-    };
+    // const saveChanges = async () => {
+    //     try {
+    //         await axios.put(`http://localhost:3700/member/update/${mem_id}`, memBackData);
+    //         console.log("Changes saved successfully");
+    //     } catch (error) {
+    //         console.error("Error saving changes:", error);
+    //     }
+    // };
 
     console.log(memBackData.chinese_name)
     return (

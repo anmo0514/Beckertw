@@ -1,8 +1,5 @@
-import { useState, useEffect } from "react";
-import {Link} from "react-router-dom";
 import "./styles/home.scss";
 import { motion } from "framer-motion"
-import axios from "axios";
 import Sharearea from "./components/sharearea";
 import Newsarea from "./components/newsarea";
 
@@ -40,8 +37,8 @@ function Home(props) {
             <div className="container-fluid">
                 <div className="row">
                     <div className="video d-flex justify-content-evenly">
-                        <iframe width="625" height="400" src="https://www.youtube.com/embed/NrcEIxqTjLM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-                        <iframe width="625" height="400" src="https://www.youtube.com/embed/S5lHuzUOflI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                        <iframe width="625" height="400" src="https://www.youtube.com/watch?v=IM8PBAEKVD0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                        <iframe width="625" height="400" src="https://www.youtube.com/embed/S5lHuzUOflI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                     </div>
                 </div>
             </div>
