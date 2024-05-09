@@ -27,6 +27,7 @@ function AdmMember() {
     const pageSize = 50;
     const memberStatus = ['請選擇', '在職者', "在學生", "全職考生", "待業中"];
     const userType = ['請選擇', 'CPA', 'CMA'];
+    
     //Read 將後端 mem 所有學生資訊導入
     const fetchData = async (page=0) => {
         try {

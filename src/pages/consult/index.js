@@ -45,7 +45,9 @@ function Consult() {
                         Becker Taiwan (捷進) 基於本服務提供評估之目的，蒐集、處理並利用您的個人資料，未經您的同意， Becker Taiwan (捷進)不會將您的個人資料提供給第三人或作不當利用，您享有個人資料保護法及相關法令之一切權利。
                     </div>
                     <div className="text-center mt-5 mb-5">
-                        <button type="button" className="btn btn-outline-secondary m-auto">開始</button>
+                        <Link to="./form">
+                            <button type="button" className="btn btn-outline-secondary m-auto">開始</button>
+                        </Link>
                     </div>
                 </div>
             </div>

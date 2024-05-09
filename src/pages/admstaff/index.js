@@ -22,6 +22,7 @@ function Admstaff() {
     const [newStaff, setNewStaff] = useState(null); // 用於保存新行的數據
     const [loading, setLoading] = useState(true);
     const { token } = useAuth();
+
     //Read 將後端staff所有員工資訊導入
     const fetchData = async () => {
         try {
@@ -29,6 +30,7 @@ function Admstaff() {
             const response = await axios.get(`${admin}`, {headers:{token: token}});
             setStafflist(response.data);
             setLoading(false); // 完成加載
+            console.log('stafflist:', stafflist);
         } catch (error) {
             console.error('Error:', error);
             setLoading(false);
@@ -215,7 +217,9 @@ function Admstaff() {
                                     </td>
                                 </tr>
                             )}
-                            {stafflist.map((staff) => (
+                            
+                            {stafflist && Array.isArray(stafflist) ? (
+                            stafflist.map((staff) => (
                                 <tr key={staff.admin_id}>
                                     <td>
                                         {editingStaff && editingStaff.admin_id === staff.admin_id ? (
@@ -304,7 +308,10 @@ function Admstaff() {
                                         )}
                                     </td>
                                 </tr>
-                            ))}
+                            ))
+                            ) : (
+                                <div>Loading...</div>
+                            )}
                         </tbody>
                     </table>
                 </div>

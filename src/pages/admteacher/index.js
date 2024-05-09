@@ -7,20 +7,12 @@ import SwitchBox from "../../components/switchBox";
 import {switchHelper} from "../../modules/helpers";
 
 function AdmTeacher() {
-    const { authorized } = useAuth();
-    const navigate = useNavigate();
-    useEffect(() => {
-        // 如果未登入，則重定向到後台登入頁面
-        if (!authorized) {
-            navigate('/adm/admlogin');
-        }
-    }, [authorized, navigate]);
-
     const [teacherlist, setTeacherlist] = useState([]);
     const [editingTeacher, setEditingTeacher] = useState(null);
     const [updatedData, setUpdatedData] = useState({});
     const [newTeacher, setNewTeacher] = useState(null); // 用於保存新行的數據
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
     const { token } = useAuth();
 
     //Read 將後端 Teacher 所有員工資訊導入

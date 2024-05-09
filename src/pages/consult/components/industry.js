@@ -2,23 +2,26 @@ import { useState } from 'react';
 import 'react-phone-input-2/lib/style.css';
 import '../styles/form.scss';
 
-function Industry() {
-
+const Industry = ({ onChange }) => {
     const [selectedOption, setSelectedOption] = useState('');
 
     const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
+        const selectedValue = event.target.value;
+        setSelectedOption(selectedValue);
+        // 调用父组件传递的回调函数，将选择的值传递给父组件
+        onChange(selectedValue);
     };
+    
     return (
         <>
             <div className="form-group mt-3 m-auto">
-                <h3>選擇目的</h3>
+                <h3>選擇職業類別</h3>
                 <div className="row mt-2">
                         <div className='mt-2'>
                             <input
                                 type="radio"
                                 id="accounting_firm"
-                                name="purpose"
+                                name="industry"
                                 value="accounting_firm"
                                 onChange={handleOptionChange}
                             />
@@ -27,7 +30,7 @@ function Industry() {
                         <div className='mt-2'><input
                             type="radio"
                             id="law_firm"
-                            name="purpose"
+                            name="industry"
                             value="law_firm"
                             onChange={handleOptionChange}
                         />
@@ -35,7 +38,7 @@ function Industry() {
                         <div className='mt-2'><input
                             type="radio"
                             id="banking"
-                            name="purpose"
+                            name="industry"
                             value="banking"
                             onChange={handleOptionChange}
                         />
@@ -44,7 +47,7 @@ function Industry() {
                         <div className='mt-2'><input
                             type="radio"
                             id="financial_consulting"
-                            name="purpose"
+                            name="industry"
                             value="financial_consulting"
                             onChange={handleOptionChange}
                         />
@@ -53,7 +56,7 @@ function Industry() {
                         <div className='mt-2'><input
                             type="radio"
                             id="manufacturing"
-                            name="purpose"
+                            name="industry"
                             value="manufacturing"
                             onChange={handleOptionChange}
                         />
@@ -61,7 +64,7 @@ function Industry() {
                         <div className='mt-2'><input
                             type="radio"
                             id="ecommerce"
-                            name="purpose"
+                            name="industry"
                             value="ecommerce"
                             onChange={handleOptionChange}
                         />
@@ -69,7 +72,7 @@ function Industry() {
                         <div className='mt-2'><input
                             type="radio"
                             id="biotechnology"
-                            name="purpose"
+                            name="industry"
                             value="biotechnology"
                             onChange={handleOptionChange}
                         />
@@ -77,7 +80,7 @@ function Industry() {
                         <div className='mt-2'><input
                             type="radio"
                             id="software_engineering"
-                            name="purpose"
+                            name="industry"
                             value="software_engineering"
                             onChange={handleOptionChange}
                         />
@@ -87,17 +90,17 @@ function Industry() {
                             <input
                                 type="radio"
                                 id="consulting_services"
-                                name="purpose"
+                                name="industry"
                                 value="consulting_services"
                                 onChange={handleOptionChange}
                             />
                             <label htmlFor="consulting_services">顧問服務</label>
                         </div>
-                        <div className='mb-5'>
+                        <div>
                         <input
                             type="radio"
                             id="other"
-                            name="purpose"
+                            name="industry"
                             value="other"
                             onChange={handleOptionChange}
                         />
